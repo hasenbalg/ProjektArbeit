@@ -24,5 +24,5 @@ o  Spielerfähigkeit:
 - Der Spieler will das Virus toeten.
 - Der Spieler will sich mit einer Landkarte orientieren.
 
-- Das Virus will den Raum/ das Level dunkel halten.
-- Das Virus will 
+- Das Virus will den Raum / das Level dunkel halten.
+- Das Virus will den Spieler berühren, um Energie zu klauen.
