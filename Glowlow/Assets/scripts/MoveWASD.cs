@@ -7,6 +7,7 @@ public class MoveWASD : MonoBehaviour {
 	// Use this for initialization
 	public float speed;
 	public float rotSpeed;
+    public GameObject test;
 	void Start () {
 	}
 
@@ -25,5 +26,13 @@ public class MoveWASD : MonoBehaviour {
 		if (Input.GetKey (KeyCode.D)) {
 			transform.Rotate(Vector3.up * Time.deltaTime * rotSpeed);
 		}
-	}
+        if (Input.GetKey(KeyCode.R))
+        {
+            test.GetComponent<Light>().spotAngle ++;
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            test.GetComponent<Light>().spotAngle --;
+        }
+    }
 }

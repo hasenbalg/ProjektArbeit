@@ -9,7 +9,7 @@ public class LightSpawner : MonoBehaviour {
 	public Object light;
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(SpawnLightsContinously());
+		//StartCoroutine(SpawnLightsContinously());
 	}
 
 	IEnumerator SpawnLightsContinously(){
