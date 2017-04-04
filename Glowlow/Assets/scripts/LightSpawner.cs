@@ -16,9 +16,20 @@ public class LightSpawner : MonoBehaviour {
 		while(true)
 		{
 			//DoSomething();
-			Object newLight = Instantiate(light, transform.position, transform.rotation);
+			Object newLight = Instantiate(light, spawnInFronOfPlayer(), transform.rotation);
 			Destroy (newLight, lifeTime);
 			yield return new WaitForSeconds(timeInterval);
 		}
+	}
+
+	private Vector3 spawnInFronOfPlayer(){
+		Vector3 playerPos = transform.position;
+		Vector3 playerDirection = transform.forward;
+		Quaternion playerRotation = transform.rotation;
+		float spawnDistance = 10;
+
+		Vector3 spawnPos = playerPos + playerDirection*spawnDistance;
+
+		return spawnPos;
 	}
 }

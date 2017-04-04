@@ -1,0 +1,6 @@
+<linker>
+<assembly fullname="Assembly-CSharp">
+<type fullname="LightSpawner" preserve="all"/>
+<type fullname="MoveWASD" preserve="all"/>
+</assembly>
+</linker>
