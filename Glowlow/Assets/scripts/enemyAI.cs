@@ -59,6 +59,6 @@ public class enemyAI : MonoBehaviour
 
     private void attack()
     {
-        print("fight!");
+        //print("fight!");
     }
 }

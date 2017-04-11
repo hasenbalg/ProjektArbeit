@@ -12,7 +12,6 @@ public class MoveWASD : MonoBehaviour {
     private Rigidbody rb;
 
     private string [] colors;
-    private int currentColorIndex;
 
 	void Start () {
         rb = GetComponent<Rigidbody>();
@@ -55,13 +54,7 @@ public class MoveWASD : MonoBehaviour {
             ChangeSpot(-1);
         }
 
-        //change color
-        if (Input.GetKeyDown("2")){
-            ColorIndexUp();
-        }
-        if (Input.GetKeyDown("1")){
-            ColorIndexDown();
-        }
+        
 
         
 
@@ -85,9 +78,7 @@ public class MoveWASD : MonoBehaviour {
         //jump
         if (Input.GetButtonDown("X360_A")) { jump();}
 
-        //change color
-        if (Input.GetButtonDown("X360_R_Bumper")) { ColorIndexUp();}
-        if (Input.GetButtonDown("X360_L_Bumper")) { ColorIndexDown();}
+        
     }
 
     private void MoveForward(){
@@ -125,17 +116,7 @@ public class MoveWASD : MonoBehaviour {
         test.GetComponent<Light>().spotAngle--;
     }
 
-    private void ColorIndexUp(){
-        currentColorIndex++;
-        if (currentColorIndex > colors.Length - 1) { currentColorIndex = 0; }
-        print(currentColorIndex);
-    }
-
-    private void ColorIndexDown(){
-        currentColorIndex--;
-        if (currentColorIndex < 0) { currentColorIndex = colors.Length - 1; }
-        print(currentColorIndex);
-    }
+    
 
 
 
