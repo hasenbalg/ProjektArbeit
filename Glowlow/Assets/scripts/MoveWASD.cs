@@ -54,9 +54,10 @@ public class MoveWASD : MonoBehaviour {
             ChangeSpot(-1);
         }
 
-        
+        //mouse
+        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X")*5, 0) * Time.deltaTime * rotSpeed);
 
-        
+
 
         //////////////////////////////////////////////////////
         //controller https://www.youtube.com/watch?v=s5x-TqLqGWA
@@ -77,6 +78,7 @@ public class MoveWASD : MonoBehaviour {
 
         //jump
         if (Input.GetButtonDown("X360_A")) { jump();}
+
 
         
     }

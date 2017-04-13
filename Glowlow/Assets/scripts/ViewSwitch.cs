@@ -36,9 +36,20 @@ public class ViewSwitch : MonoBehaviour {
 			ColorIndexDown();
 		}
 
-		//controller
-		//change color
-		if (Input.GetButtonDown("X360_R_Bumper")) { ColorIndexUp();}
+        //mouse
+        if (Input.GetAxis("Mouse ScrollWheel") < 0) {
+            print(Input.GetAxis("Mouse ScrollWheel"));
+            ColorIndexUp();
+        }
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            print(Input.GetAxis("Mouse ScrollWheel"));
+            ColorIndexDown();
+        }
+
+        //controller
+        //change color
+        if (Input.GetButtonDown("X360_R_Bumper")) { ColorIndexUp();}
 		if (Input.GetButtonDown("X360_L_Bumper")) { ColorIndexDown();}
 
 
