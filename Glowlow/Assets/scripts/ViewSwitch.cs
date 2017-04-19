@@ -10,8 +10,14 @@ public class ViewSwitch : MonoBehaviour {
 	private Camera[] cameras;
 	private int currentCamIndex = 0;
 
+    private Texture2D fragViewTint;
+    public Color fragViewTintColor;
 
-	void Start() {
+
+
+
+
+    void Start() {
 		cameras = new Camera[]{ explorerView, enemiesVisibleView, fragView};
 
 		cameras [0].backgroundColor = Color.red;
@@ -20,11 +26,12 @@ public class ViewSwitch : MonoBehaviour {
 
 		cameras [0].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
 		cameras [1].cullingMask = (1 << LayerMask.NameToLayer("EnemiesViewLayer"));
-		cameras [2].cullingMask = (1 << LayerMask.NameToLayer("Fraglayer"));
+		//cameras [2].cullingMask = (1 << LayerMask.NameToLayer("FragView"));
+		cameras [2].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
 
 		SwitchCamera ();
-
-	}
+        
+    }
 
 	void Update() {
 
@@ -53,9 +60,19 @@ public class ViewSwitch : MonoBehaviour {
 		if (Input.GetButtonDown("X360_L_Bumper")) { ColorIndexDown();}
 
 
+        //color light for frag view
+
+        if (currentCamIndex == 2)
+        {
+            gameObject.transform.FindChild("PlayerLight").GetComponent<Light>().color = fragViewTintColor;
+        }
+        else {
+            gameObject.transform.FindChild("PlayerLight").GetComponent <Light>().color = new Color(1,1,1);
+        }
+
 	}
 
-	private void ColorIndexUp(){
+    private void ColorIndexUp(){
 		currentCamIndex++;
 		if (currentCamIndex > cameras.Length - 1) { currentCamIndex = 0; }
 		SwitchCamera ();
