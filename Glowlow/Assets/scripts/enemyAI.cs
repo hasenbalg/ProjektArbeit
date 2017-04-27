@@ -7,13 +7,14 @@ public class enemyAI : MonoBehaviour
 
 
 
-    public Transform target;
-    public float watchDistance;
-    public float followDistance;
-    public float attackDistance;
-    public float moveSpeed;
+    public float watchDistance = 30f;
+	public float followDistance = 15f;
+	public float attackDistance = 5f;
+    public float moveSpeed = 2f;
+	public float damping = 2f;
+
+	private Transform target;
     private Rigidbody rb;
-    public float damping;
 
 
 
@@ -21,6 +22,7 @@ public class enemyAI : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+		target = GameObject.FindGameObjectsWithTag("Player")[0].transform; 
     }
 
     // Update is called once per frame
