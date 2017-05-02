@@ -100,46 +100,46 @@ D										┘	┌
 					switch(map[x, z]){
 					case '╣':
 						go.GetComponent<MeshFilter> ().sharedMesh = T;
-						go.transform.rotation = Quaternion.Euler (-90,0,0);
+						go.transform.rotation = Quaternion.Euler (-0,0,0);
 						break;
 					case '║':
 						go.GetComponent<MeshFilter> ().sharedMesh = I;
 						//go.transform.rotation = Quaternion.Euler (0, 0, 0);
-						go.transform.rotation = Quaternion.Euler (0,0,-202.5f);
-						go.transform.localScale = new Vector3 (1,1,3);
+						go.transform.rotation = Quaternion.Euler (0,0,0);
+						go.transform.localScale = new Vector3 (1,1,1);
 						break;
 					case '╗':
 						go.GetComponent<MeshFilter> ().sharedMesh  = G;
-						go.transform.rotation = Quaternion.Euler (-90,270,0);
+						go.transform.rotation = Quaternion.Euler (-0,270,0);
 						break;
 					case '╝':
 						go.GetComponent<MeshFilter> ().sharedMesh = G;
-						go.transform.rotation = Quaternion.Euler (-90,0,0);
+						go.transform.rotation = Quaternion.Euler (0,0,0);
 						break;
 					case '╚':
 						go.GetComponent<MeshFilter> ().sharedMesh = G;
-						go.transform.rotation = Quaternion.Euler (-90,90,0);
+						go.transform.rotation = Quaternion.Euler (-180,-90,-180);
 						break;
 					case '╔':
 						go.GetComponent<MeshFilter> ().sharedMesh = G;
-						go.transform.rotation = Quaternion.Euler (-90,180,0);
+						go.transform.rotation = Quaternion.Euler (0,180,0);
 						break;
 					case '╩':
 						go.GetComponent<MeshFilter> ().sharedMesh = T;
-						go.transform.rotation = Quaternion.Euler (-90,90,0);
+						go.transform.rotation = Quaternion.Euler (0,90,0);
 						break;
 					case '╦':
 						go.GetComponent<MeshFilter> ().sharedMesh = T;
-						go.transform.rotation = Quaternion.Euler (-90,-270,0);
+						go.transform.rotation = Quaternion.Euler (-0,-90,0);
 						break;
 					case '╠':
 						go.GetComponent<MeshFilter> ().sharedMesh = T;
-						go.transform.rotation = Quaternion.Euler (-90,-180,0);
+						go.transform.rotation = Quaternion.Euler (-0,-180,0);
 						break;
 					case '═':
 						go.GetComponent<MeshFilter> ().sharedMesh = I;
-						go.transform.rotation = Quaternion.Euler (0,-90,-202.5f);
-						go.transform.localScale = new Vector3 (1,1,3);
+						go.transform.rotation = Quaternion.Euler (0,-90,0);
+						go.transform.localScale = new Vector3 (1,1,1);
 						break;
 					case '╬':
 						go.GetComponent<MeshFilter> ().sharedMesh = P;
