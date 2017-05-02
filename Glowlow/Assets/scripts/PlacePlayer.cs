@@ -11,7 +11,7 @@ public class PlacePlayer : MonoBehaviour {
 		//player.transform.position = transform.GetChild (0).transform.position;
 		//Instantiate (player, , Quaternion.identity);
 		player.transform.position = transform.GetChild (0).transform.position;
-		player.transform.rotation = transform.GetChild (0).transform.rotation * Quaternion.Euler (0, 180, 0);
+		//player.transform.rotation = transform.GetChild (0).transform.rotation * Quaternion.Euler (0, 0, 0);
 	}
 
 }

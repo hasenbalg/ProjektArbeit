@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 
 public class LevelBuilder : MonoBehaviour {
-	public Material mat;
+	public Material mat, mat2;
 	public Mesh I, T, P, G;
-	public float tileSize = 3;
+	public float tileSize;
 
 	/*
 https://en.wikipedia.org/wiki/Box-drawing_character
@@ -30,7 +31,7 @@ D										┘	┌
 		{'O','O','O','O','O','║','O','O','O','O'}
 	};
 
-	char[,] map = {
+	char[,] map1 = {
 		{'O','║','O','O','O','O','O','O','O','O'},
 		{'O','║','O','O','O','O','O','O','O','O'},
 		{'O','╠','═','═','═','═','╦','═','═','O'},
@@ -42,16 +43,36 @@ D										┘	┌
 		{'O','O','O','O','O','║','O','O','O','O'},
 		{'O','O','O','O','O','║','O','O','O','O'}
 	};
+	char[,] map = {
+		{'╔','╗','╔','═','═','╗','O','╔','═','═','═','═','═','╗'},
+		{'║','╚','╝','O','O','║','O','║','O','O','O','O','O','║'},
+		{'╚','╗','O','╔','╗','╚','═','╬','╦','═','═','╦','═','╣'},
+		{'O','╠','═','╝','╚','╗','O','║','╠','═','═','╩','╗','║'},
+		{'═','╝','O','╔','═','╝','O','║','╚','═','═','╗','╚','╣'},
+		{'═','═','═','╬','═','═','╦','╣','O','╔','╗','╠','═','╬'},
+		{'O','O','O','╚','═','═','╩','╩','═','╩','╝','╚','═','╝'}
+	};
+
+	char[,] map4 = {
+		{'╔','╗','╔','═','═','╗','O','╔','═','═','═','═','═','╗'},
+		{'║','╚','╝','O','O','╦','O','╩','O','O','O','O','O','║'}
+	
+	};
 
 	// Use this for initialization
 	void Awake () {
 		BuildLevel ();
 	}
 	public void BuildLevel(){
+		
+//		while(transform.childCount != 0){
+//			Debug.Log (transform.childCount + "huhu");
+//			DestroyImmediate(transform.GetChild(0).gameObject);
+//		}
+		DeleteChildren(transform.gameObject);
 
-		foreach (Transform child in transform) {
-			GameObject.Destroy(child.gameObject);
-		}
+
+
 
 		int z,x;
 		string output = "";
@@ -62,10 +83,18 @@ D										┘	┌
 				output += map [x,z] + ",";
 				if(map[x, z] != 'O'){
 					GameObject go = new GameObject();
-					go.name = "Modul";
+					go.name = "Modul"+ map[x, z];
+					go.tag = "Modul";
 					go.transform.parent = gameObject.transform;
 					go.AddComponent<MeshFilter> ();
+
 					go.AddComponent<MeshRenderer> ().material = mat;
+
+//					if ((x % 2) == (z % 2)) {
+//						go.GetComponent<MeshRenderer> ().material = mat2;
+//					}
+					go.GetComponent<MeshRenderer> ().material.color = Color.grey;
+
 					go.layer = LayerMask.NameToLayer("ExplorerViewLayer");
 					go.transform.position = new Vector3 (z * tileSize, 0, -x * tileSize);
 					switch(map[x, z]){
@@ -77,7 +106,7 @@ D										┘	┌
 						go.GetComponent<MeshFilter> ().sharedMesh = I;
 						//go.transform.rotation = Quaternion.Euler (0, 0, 0);
 						go.transform.rotation = Quaternion.Euler (0,0,-202.5f);
-						go.transform.localScale = new Vector3 (1,1,2);
+						go.transform.localScale = new Vector3 (1,1,3);
 						break;
 					case '╗':
 						go.GetComponent<MeshFilter> ().sharedMesh  = G;
@@ -110,24 +139,32 @@ D										┘	┌
 					case '═':
 						go.GetComponent<MeshFilter> ().sharedMesh = I;
 						go.transform.rotation = Quaternion.Euler (0,-90,-202.5f);
-						go.transform.localScale = new Vector3 (1,1,2);
+						go.transform.localScale = new Vector3 (1,1,3);
 						break;
 					case '╬':
 						go.GetComponent<MeshFilter> ().sharedMesh = P;
+						go.transform.rotation = Quaternion.Euler (-90,0,0);
+
 						break;
 					default:
 						go.GetComponent<MeshFilter> ().sharedMesh = null;
 						break;
 					}
 					go.AddComponent<MeshCollider> ().sharedMesh = (Mesh)go.GetComponent<MeshFilter>().sharedMesh;
-					Debug.Log (go.name);
+					//Debug.Log (go.name);
 				}
 			}
 		}
 
-		Debug.Log (output);
+		//Debug.Log (output);
 	}
 
+	private void DeleteChildren (GameObject badParent) {
+		List <Transform> children = badParent.transform.Cast <Transform> ().ToList ();
+		foreach (Transform child in children) {
+			GameObject.DestroyImmediate (child.gameObject);
+		}
+	}
 
 
 }

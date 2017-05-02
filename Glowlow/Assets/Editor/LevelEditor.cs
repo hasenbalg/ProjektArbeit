@@ -9,7 +9,7 @@ public class LevelEditor : Editor {
 		base.OnInspectorGUI ();
 		if(GUILayout.Button("REgenerate The MAP!!!!!!!")){
 			LevelBuilder buildMap  = (LevelBuilder) target;
-			buildMap.BuildLevel ();
+			//buildMap.BuildLevel ();
 		}
 	}
 
