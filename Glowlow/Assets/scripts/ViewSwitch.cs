@@ -20,9 +20,9 @@ public class ViewSwitch : MonoBehaviour {
     void Start() {
 		cameras = new Camera[]{ explorerView, enemiesVisibleView, fragView};
 
-		cameras [0].backgroundColor = Color.red;
+		cameras [0].backgroundColor = Color.black;
 		cameras [1].backgroundColor = Color.black;
-		cameras [2].backgroundColor = Color.yellow;
+		cameras [2].backgroundColor = Color.black;
 
 		cameras [0].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
 		cameras [1].cullingMask = (1 << LayerMask.NameToLayer("EnemiesViewLayer"));
