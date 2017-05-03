@@ -74,7 +74,8 @@ public class MoveWASD : MonoBehaviour {
         // IMPLEMET ME!!!!!!!!!!!
 
         //spot radius
-        ChangeSpot(Input.GetAxis("X360_Triggers") * -1);
+		ChangeSpot(Input.GetAxis("X360_Triggers") * -1);
+        ChangeSpot(Input.GetAxis("X360_Triggers_Linux") * +1);
 
         //jump
         if (Input.GetButtonDown("X360_A")) { jump();}
