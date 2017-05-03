@@ -11,7 +11,7 @@ public class PlaceEnemies : MonoBehaviour {
 		possibleSpawnPoints = new List<Vector3> ();
 
 		foreach(Transform child in transform){
-			Debug.Log (child.position);
+			//Debug.Log (child.position);
 			possibleSpawnPoints.Add (child.position);
 		}
 
