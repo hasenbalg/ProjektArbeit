@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class SkillzzzBooster : MonoBehaviour {
 
-    public float speedBoost = 5.0f;
+    public float speedBoostVelocity = 5.0f;
+	public float speedBoostCost = 1f;
     private float defaultSpeed;
     private MoveWASD moveWASD;
     private bool controller_X_pressed = false, controller_Y_pressed = false;
     private bool showMap = false;
 
+	PlayerEnergy pe;
+
     // Use this for initialization
     void Start () {
         moveWASD = gameObject.GetComponent<MoveWASD>();
         defaultSpeed = moveWASD.speed;
-    }
+
+		pe = (PlayerEnergy) GetComponent(typeof(PlayerEnergy));
+   }
 	
 	// Update is called once per frame
 	void Update () {
         //SPEEDBOOST
         if (Input.GetKey(KeyCode.LeftShift)) { 
-            moveWASD.speed = defaultSpeed + speedBoost;
+			moveWASD.speed = defaultSpeed + speedBoostVelocity;
+			pe.LooseEnergy(speedBoostCost);
         }else {
             moveWASD.speed = defaultSpeed;
         }
@@ -36,7 +42,8 @@ public class SkillzzzBooster : MonoBehaviour {
         }
 
         if (controller_X_pressed) {
-            moveWASD.speed = defaultSpeed + speedBoost;
+			moveWASD.speed = defaultSpeed + speedBoostVelocity;
+			pe.LooseEnergy(speedBoostCost);
         }
 
         //MAP
