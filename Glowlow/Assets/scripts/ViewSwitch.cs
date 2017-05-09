@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Views {EXPLORE, FRAG, ENEMY};  
+
 public class ViewSwitch : MonoBehaviour {
+
+
 
 	public Camera explorerView;
 	public Camera enemiesVisibleView;
@@ -13,16 +18,16 @@ public class ViewSwitch : MonoBehaviour {
     private Texture2D fragViewTint;
     public Color fragViewTintColor;
 
-
+	Views status;
 
 
 
     void Start() {
 		cameras = new Camera[]{ explorerView, enemiesVisibleView, fragView};
 
-		cameras [0].backgroundColor = Color.red;
+		cameras [0].backgroundColor = Color.black;
 		cameras [1].backgroundColor = Color.black;
-		cameras [2].backgroundColor = Color.yellow;
+		cameras [2].backgroundColor = Color.black;
 
 		cameras [0].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
 		cameras [1].cullingMask = (1 << LayerMask.NameToLayer("EnemiesViewLayer"));
@@ -45,7 +50,7 @@ public class ViewSwitch : MonoBehaviour {
 
         //mouse
         if (Input.GetAxis("Mouse ScrollWheel") < 0) {
-            print(Input.GetAxis("Mouse ScrollWheel"));
+            //print(Input.GetAxis("Mouse ScrollWheel"));
             ColorIndexUp();
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
@@ -76,7 +81,7 @@ public class ViewSwitch : MonoBehaviour {
 		currentCamIndex++;
 		if (currentCamIndex > cameras.Length - 1) { currentCamIndex = 0; }
 		SwitchCamera ();
-		print(cameras[currentCamIndex].backgroundColor);
+		//print(cameras[currentCamIndex].backgroundColor);
 	}
 
 	private void ColorIndexDown(){
@@ -91,5 +96,11 @@ public class ViewSwitch : MonoBehaviour {
 			c.enabled = false;
 		}
 		cameras [currentCamIndex].enabled = true;
+		status = (Views)currentCamIndex;
+		Debug.Log (status);
+	}
+
+	public Views GetStatus(){
+		return status;
 	}
 }
