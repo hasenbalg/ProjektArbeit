@@ -57,10 +57,14 @@ public class enemyAI : MonoBehaviour
     {
         // rb.AddRelativeForce(Vector3.forward * moveSpeed);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        gameObject.GetComponent<AudioSource>().volume = 0.3f;
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     private void attack()
     {
+        gameObject.GetComponent<AudioSource>().volume = 1;
+        gameObject.GetComponent<AudioSource>().Play();
         //print("fight!");
     }
 }
