@@ -98,6 +98,7 @@ public class ViewSwitch : MonoBehaviour {
 		cameras [currentCamIndex].enabled = true;
 		status = (Views)currentCamIndex;
 		Debug.Log (status);
+        gameObject.GetComponent<AudioSource>().Play();
 	}
 
 	public Views GetStatus(){
