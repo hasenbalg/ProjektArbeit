@@ -8,7 +8,7 @@ using UnityEngine;
 public class LevelBuilder2 : MonoBehaviour
 {
 
-	public GameObject i, g, p, t;
+	public GameObject[] i, g, p, t;
 	public float tileSize;
 
 	string[] map = {
@@ -37,37 +37,37 @@ public class LevelBuilder2 : MonoBehaviour
 			foreach (char c in line) {
 				switch (c) {
 				case '╣':
-					CreateModul (t, Quaternion.Euler (0, 0, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (t[Random.Range(0,t.Length - 1)], Quaternion.Euler (0, 0, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '║':
-					CreateModul (i, Quaternion.Euler (0, 0, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (i[Random.Range(0, i.Length - 1)], Quaternion.Euler (0, 0, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╗':
-					CreateModul (g, Quaternion.Euler (0, 270, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (g[Random.Range(0, g.Length - 1)], Quaternion.Euler (0, 270, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╝':
-					CreateModul (g, Quaternion.Euler (0, 0, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (g[Random.Range(0, g.Length - 1)], Quaternion.Euler (0, 0, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╚':
-					CreateModul (g, Quaternion.Euler (-180, -90, -180), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (g[Random.Range(0, g.Length - 1)], Quaternion.Euler (-180, -90, -180), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╔':
-					CreateModul (g, Quaternion.Euler (0, 180, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (g[Random.Range(0, g.Length - 1)], Quaternion.Euler (0, 180, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╩':
-					CreateModul (t, Quaternion.Euler (0, 90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (t[Random.Range(0, t.Length - 1)], Quaternion.Euler (0, 90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╦':
-					CreateModul (t, Quaternion.Euler (0, -90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (t[Random.Range(0, t.Length - 1)], Quaternion.Euler (0, -90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╠':
-					CreateModul (t, Quaternion.Euler (0, -180, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (t[Random.Range(0, t.Length - 1)], Quaternion.Euler (0, -180, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '═':
-					CreateModul (i, Quaternion.Euler (0, -90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (i[Random.Range(0, i.Length - 1)], Quaternion.Euler (0, -90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 					break;
 				case '╬':
-					CreateModul (p, Quaternion.Euler (0, 90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
+					CreateModul (p[Random.Range(0, p.Length-1)], Quaternion.Euler (0, 90, 0), new Vector3 (tileSize * x, 0, tileSize * -z));
 
 					break;
 				default:
