@@ -15,12 +15,14 @@ public class enemyAI : MonoBehaviour
 
 	private Transform target;
     private Rigidbody rb;
+    private Animator myAnimator;
 
 
 
     // Use this for initialization
     void Start()
     {
+        myAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
 		target = GameObject.FindGameObjectsWithTag("Player")[0].transform; 
     }
@@ -55,6 +57,9 @@ public class enemyAI : MonoBehaviour
 
     private void follow()
     {
+        myAnimator.SetTrigger("IsWalking");
+
+
         // rb.AddRelativeForce(Vector3.forward * moveSpeed);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         gameObject.GetComponent<AudioSource>().volume = 0.3f;
@@ -65,6 +70,7 @@ public class enemyAI : MonoBehaviour
     {
         gameObject.GetComponent<AudioSource>().volume = 1;
         gameObject.GetComponent<AudioSource>().Play();
+        myAnimator.SetTrigger("IsAttacking");
         //print("fight!");
     }
 }
