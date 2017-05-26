@@ -17,7 +17,8 @@ public class PlaceEnergy : MonoBehaviour {
 		}
 
 		for(int i = 0; i < howManyEnergy; i++){
-			Instantiate (energy, possibleSpawnPoints[Random.Range (0, possibleSpawnPoints.Count)], Quaternion.identity * Quaternion.Euler(0,180,0));
+			//Instantiate (energy, possibleSpawnPoints[Random.Range (0, possibleSpawnPoints.Count)], Quaternion.identity * Quaternion.Euler(0,180,0));
+			Instantiate (energy, possibleSpawnPoints[Random.Range (0, possibleSpawnPoints.Count)] + Vector3.up /3, Quaternion.identity * Quaternion.Euler(90, 0, 0));
 		}
 	}
 

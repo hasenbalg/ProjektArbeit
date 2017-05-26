@@ -7,9 +7,11 @@ public class MoveWASD : MonoBehaviour {
 	// Use this for initialization
 	public float speed;
 	public float rotSpeed;
-    public float jumpSpeed;
+    public float jumpSpeed ;
     public GameObject test;
     private Rigidbody rb;
+    private Vector3 moveDirection = Vector3.zero;
+    public float gravity = 20;
 
     private string [] colors;
 
@@ -21,7 +23,36 @@ public class MoveWASD : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Vector3 temp = transform.position;
+
+
+        // Movement
+        CharacterController controller = GetComponent<CharacterController>();
+        if (controller.isGrounded)
+        {
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= speed;
+            if (Input.GetButton("Jump"))
+            {
+                moveDirection.y = jumpSpeed;
+            }
+        }
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.LeftControl)) //crouch
+        {
+            transform.GetChild(0).localPosition = new Vector3(0, -0.25f, 0); // GetChild(0) ist die Kamera/das Kamera-Flashlight Konstrukt
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl)) //stand Up
+        {
+            transform.GetChild(0).localPosition = new Vector3(0, 0, 0); // GetChild(0) ist die Kamera/das Kamera-Flashlight Konstrukt
+        }
+
+
+
+       /* Vector3 temp = transform.position;
         if (Input.GetKey(KeyCode.W)) {
             MoveForward();
         }
@@ -44,7 +75,7 @@ public class MoveWASD : MonoBehaviour {
         if (Input.GetKeyDown("m")){
             crouch();
         }
-
+*/
         if (Input.GetKey(KeyCode.E))
         {
             ChangeSpot(+1);

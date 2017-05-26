@@ -94,7 +94,7 @@ public class LevelBuilder2 : MonoBehaviour
 		List <Transform> children = transform.Cast <Transform> ().ToList ();
 		Debug.Log (children.Count);
 		foreach (Transform child in children) {
-			Debug.Log(transform.childCount);
+			//Debug.Log(transform.childCount);
 			GameObject.DestroyImmediate (child.gameObject);
 		}
 		Debug.Log (transform.childCount);

@@ -10,7 +10,8 @@ public class PlayerEnergy : MonoBehaviour {
 	private float energy;
 	private float fullIntensity;
 
-	void Start(){
+
+    void Start(){
 		energy = fullEnergy;
 		fullIntensity = playerLight.intensity;
 	}
@@ -34,6 +35,7 @@ public class PlayerEnergy : MonoBehaviour {
 	{
 		if(col.gameObject.tag == "Energy")
 		{
+            Debug.Log("Energy clollected");
 			GainEnergy ();
 			Destroy(col.gameObject);
 		}

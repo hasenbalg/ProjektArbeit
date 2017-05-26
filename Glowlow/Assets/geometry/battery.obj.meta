@@ -1,66 +1,17 @@
 fileFormatVersion: 2
-guid: b5b28f70036f1de42b65cfb1c9a7e1a0
-timeCreated: 1494924227
-licenseType: Free
+guid: 982bc63cb373d444b8c9fd43ae31c1c4
+timeCreated: 1495810994
+licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Armature
-    100002: Armature_001
-    100004: Bone
-    100006: Bone_0
-    100008: Bone_001
-    100010: Bone_002
-    100012: Bone_003
-    100014: Bone_004
-    100016: Bone_005
-    100018: Bone_006
-    100020: Bone_007
-    100022: Bone_008
-    100024: Bone_009
-    100026: Bone_010
-    100028: Bone_011
-    100030: Bone_012
-    100032: Bone_013
-    100034: Bone_014
-    100036: Bone_015
-    100038: Bone_016
-    100040: Bone_017
-    100042: Bone_018
-    100044: Bone_019
-    100046: Bone_020
-    100048: //RootNode
-    100050: Sphere_000
-    400000: Armature
-    400002: Armature_001
-    400004: Bone
-    400006: Bone_0
-    400008: Bone_001
-    400010: Bone_002
-    400012: Bone_003
-    400014: Bone_004
-    400016: Bone_005
-    400018: Bone_006
-    400020: Bone_007
-    400022: Bone_008
-    400024: Bone_009
-    400026: Bone_010
-    400028: Bone_011
-    400030: Bone_012
-    400032: Bone_013
-    400034: Bone_014
-    400036: Bone_015
-    400038: Bone_016
-    400040: Bone_017
-    400042: Bone_018
-    400044: Bone_019
-    400046: Bone_020
-    400048: //RootNode
-    400050: Sphere_000
-    4300000: Sphere_000
-    7400000: Default Take
-    9500000: //RootNode
-    13700000: Sphere_000
+    100000: //RootNode
+    100002: default
+    400000: //RootNode
+    400002: default
+    2300000: default
+    3300000: default
+    4300000: default
   materials:
     importMaterials: 1
     materialName: 0
@@ -71,8 +22,6 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -125,7 +74,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
