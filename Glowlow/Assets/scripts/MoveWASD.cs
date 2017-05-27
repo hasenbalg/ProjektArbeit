@@ -31,7 +31,7 @@ public class MoveWASD : MonoBehaviour {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
-            if (Input.GetButton("Jump"))
+			if (Input.GetKeyDown("space") || Input.GetButtonDown ("X360_A"))
             {
                 moveDirection.y = jumpSpeed;
             }
@@ -39,15 +39,15 @@ public class MoveWASD : MonoBehaviour {
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.LeftControl)) //crouch
-        {
-            transform.GetChild(0).localPosition = new Vector3(0, -0.25f, 0); // GetChild(0) ist die Kamera/das Kamera-Flashlight Konstrukt
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftControl)) //stand Up
-        {
-            transform.GetChild(0).localPosition = new Vector3(0, 0, 0); // GetChild(0) ist die Kamera/das Kamera-Flashlight Konstrukt
-        }
+//        if (Input.GetKeyDown(KeyCode.LeftControl)) //crouch
+//        {
+//            transform.GetChild(0).localPosition = new Vector3(0, -0.25f, 0); // GetChild(0) ist die Kamera/das Kamera-Flashlight Konstrukt
+//        }
+//
+//        if (Input.GetKeyUp(KeyCode.LeftControl)) //stand Up
+//        {
+//            transform.GetChild(0).localPosition = new Vector3(0, 0, 0); // GetChild(0) ist die Kamera/das Kamera-Flashlight Konstrukt
+//        }
 
 
 
@@ -93,10 +93,10 @@ public class MoveWASD : MonoBehaviour {
         //controller https://www.youtube.com/watch?v=s5x-TqLqGWA
 
         //navigate player
-        float vAxis = Input.GetAxis("Vertical");
-		transform.Translate(Vector3.forward * vAxis * Time.deltaTime * speed);
-		float hAxis = Input.GetAxis("Horizontal");
-		transform.Translate(Vector3.right * hAxis * Time.deltaTime * speed);
+//        float vAxis = Input.GetAxis("Vertical");
+//		transform.Translate(Vector3.forward * vAxis * Time.deltaTime * speed);
+//		float hAxis = Input.GetAxis("Horizontal");
+//		transform.Translate(Vector3.right * hAxis * Time.deltaTime * speed);
        // transform.Rotate(Vector3.down * -hAxis * Time.deltaTime * rotSpeed);
 
         //pan/tilt cam and light

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class EnemyEnergy : MonoBehaviour {
 
-	private float energy = 1000;
+	public float energy = 1000;
+	TextMesh text;
+
 
 	public void LooseEnergy (float damage) {
 		energy -= damage;
@@ -17,4 +19,15 @@ public class EnemyEnergy : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+	void Start(){
+		text = gameObject.AddComponent<TextMesh> ();
+
+	}
+
+	void Update(){
+		text.text = energy.ToString ();
+	}
+
+
 }

@@ -17,6 +17,7 @@ public class SkillzzzBooster : MonoBehaviour
 	private bool showMap = false;
 
 	PlayerEnergy pe;
+	MiniMap mm;
 
 	// Use this for initialization
 	void Start ()
@@ -26,7 +27,7 @@ public class SkillzzzBooster : MonoBehaviour
 
 		pe = (PlayerEnergy)GetComponent (typeof(PlayerEnergy));
 
-		mapCam.enabled = false;
+		mm = (MiniMap)transform.FindChild ("Map").GetComponent<MiniMap> ();
 	}
 	
 	// Update is called once per frame
@@ -55,34 +56,27 @@ public class SkillzzzBooster : MonoBehaviour
 		//MAP
 		//Controller
 		if (Input.GetButtonDown ("X360_Y")) {
-			ToggleMapCam ();
+			mm.ToggleMap ();
 			pe.LooseEnergy (mapCost);
 		}
 
 		if (Input.GetButtonUp ("X360_Y")) {
-			ToggleMapCam ();
+			mm.ToggleMap ();
 		}
 
-       
+
 		//TAB KEY
 		if (Input.GetKeyDown (KeyCode.Tab)) {
-			ToggleMapCam ();
+			mm.ToggleMap ();
 			pe.LooseEnergy (mapCost);
 		}
 		if (Input.GetKeyUp (KeyCode.Tab)) {
-			ToggleMapCam ();
+			mm.ToggleMap ();
 		}
-        
+
 	}
 
-	private void ToggleMapCam ()
-	{
-		if (mapCam.enabled) {
-			mapCam.enabled = false;
-		} else {
-			mapCam.enabled = true;
-		}
-	}
+
 
 	private void ToggleSpeedBoost ()
 	{

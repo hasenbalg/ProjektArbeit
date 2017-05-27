@@ -6,13 +6,13 @@ public class PlayerEnergy : MonoBehaviour {
 
 
 	public Light playerLight;
-	public float fullEnergy = 1000f;
-	private float energy;
+	private float fullEnergy;
+	public float energy = 1000f;
 	private float fullIntensity;
 
 
     void Start(){
-		energy = fullEnergy;
+		fullEnergy = energy;
 		fullIntensity = playerLight.intensity;
 	}
 
