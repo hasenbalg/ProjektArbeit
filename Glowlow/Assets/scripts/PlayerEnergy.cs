@@ -31,13 +31,25 @@ public class PlayerEnergy : MonoBehaviour {
 		LooseEnergy (energy - fullEnergy);
 	}
 
-	void OnCollisionEnter (Collision col)
-	{
-		if(col.gameObject.tag == "Energy")
+//	void OnTriggerEnter (Collision col)
+//	{
+//		if(col.gameObject.tag == "Energy")
+//		{
+//            Debug.Log("Energy clollected");
+//			GainEnergy ();
+//			Destroy(col.gameObject);
+//		}
+//	}
+
+	void OnTriggerEnter(Collider other) {
+		//Destroy(other.gameObject);
+		if(other.gameObject.tag == "Energy")
 		{
-            Debug.Log("Energy clollected");
+			Debug.Log("Energy clollected");
 			GainEnergy ();
-			Destroy(col.gameObject);
+			Destroy(other.gameObject);
 		}
 	}
+
+
 }

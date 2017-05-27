@@ -24,7 +24,6 @@ public class MoveWASD : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-
         // Movement
         CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded)
@@ -94,15 +93,16 @@ public class MoveWASD : MonoBehaviour {
         //controller https://www.youtube.com/watch?v=s5x-TqLqGWA
 
         //navigate player
-        float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * vAxis * Time.deltaTime * speed);
-        transform.Rotate(Vector3.down * -hAxis * Time.deltaTime * rotSpeed);
+		transform.Translate(Vector3.forward * vAxis * Time.deltaTime * speed);
+		float hAxis = Input.GetAxis("Horizontal");
+		transform.Translate(Vector3.right * hAxis * Time.deltaTime * speed);
+       // transform.Rotate(Vector3.down * -hAxis * Time.deltaTime * rotSpeed);
 
         //pan/tilt cam and light
         float rStickX = Input.GetAxis("X360_R_Stick_X");
         float rStickY = Input.GetAxis("X360_R_Stick_Y");
-        // IMPLEMET ME!!!!!!!!!!!
+		transform.Rotate(new Vector3(0, rStickX *5, 0) * Time.deltaTime * rotSpeed);
 
         //spot radius
 		ChangeSpot(Input.GetAxis("X360_Triggers") * -1);
@@ -122,6 +122,14 @@ public class MoveWASD : MonoBehaviour {
     private void MoveBackward(){
         transform.Translate(Vector3.back * Time.deltaTime * speed);
     }
+
+	private void MoveRight(){
+		transform.Translate(Vector3.right * Time.deltaTime * speed);
+	}
+
+	private void MoveLeft(){
+		transform.Translate(Vector3.right * -1 * Time.deltaTime * speed);
+	}
 
     private void TurnLeft() {
         transform.Rotate(Vector3.down * Time.deltaTime * rotSpeed);

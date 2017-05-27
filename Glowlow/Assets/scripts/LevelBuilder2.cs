@@ -97,7 +97,7 @@ public class LevelBuilder2 : MonoBehaviour
 			//Debug.Log(transform.childCount);
 			GameObject.DestroyImmediate (child.gameObject);
 		}
-		Debug.Log (transform.childCount);
+		// Debug.Log (transform.childCount);
 	}
 
 
