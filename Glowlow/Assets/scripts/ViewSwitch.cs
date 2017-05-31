@@ -5,7 +5,8 @@ using UnityEngine;
 
 public enum Views {EXPLORE, FRAG, ENEMY};  
 
-public class ViewSwitch : MonoBehaviour {
+public class ViewSwitch : GodModeInitalisizer
+{
     
 	public Camera explorerView;
 	public Camera enemiesVisibleView;
@@ -19,21 +20,14 @@ public class ViewSwitch : MonoBehaviour {
 
 	Views status;
 
-    private GodMode godmode;
-
     void Start()
     {
-        godmode = GameObject.Find("CanvasGodMode").GetComponent<GodMode>();
-
-
         GenerateCamera();
     }
 
     public void GenerateCamera()
-    {
-        Debug.Log(godmode.IsFullLightMode());
-
-        if (godmode.IsFullLightMode())
+    { 
+        if (GetGodMode().IsFullLightMode())
         {
             cameras = new Camera[] { godModeView };
 

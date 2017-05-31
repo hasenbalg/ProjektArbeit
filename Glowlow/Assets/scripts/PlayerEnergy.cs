@@ -2,30 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEnergy : MonoBehaviour {
+public class PlayerEnergy : GodModeInitalisizer {
 
 
 	public Light playerLight;
 	public float fullEnergy = 1000f;
 	private float energy;
 	private float fullIntensity;
-    private GodMode godmode;
-
 	void Start(){
-        godmode = GameObject.Find("CanvasGodMode").GetComponent<GodMode>();
 		energy = fullEnergy;
 		fullIntensity = playerLight.intensity;
 	}
 
     private void Update()
     {
-        godmode.UpdateTextFieldPlayerEnergy(energy);
+        GetGodMode().UpdateTextFieldPlayerEnergy(energy);
     }
 
     public void LooseEnergy (float damage) {
         energy -= damage;
 		playerLight.intensity = fullIntensity * (energy / fullEnergy);
-		if (energy <= 0 && !godmode.IsDeathLessMode()) {
+		if (energy <= 0 && !GetGodMode().IsDeathLessMode()) {
 			Destroy (gameObject);
 		}
 	}
