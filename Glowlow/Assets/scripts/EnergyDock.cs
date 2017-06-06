@@ -9,6 +9,7 @@ public class EnergyDock : MonoBehaviour {
 	private GameObject indicator;
 	private GameObject player;
 	public bool isFilled = false;
+	private float yOffset;
 
 
 	// Use this for initialization
@@ -17,6 +18,7 @@ public class EnergyDock : MonoBehaviour {
 		player = GameObject.Find ("Player");
 		indicator = transform.FindChild("Indicator 1").gameObject;
 		//Debug.Log ( transform.localScale);
+		yOffset = indicator.transform.position.y;
 
 	}
 	
@@ -25,6 +27,9 @@ public class EnergyDock : MonoBehaviour {
 		if(Vector3.Distance(player.transform.position, transform.position) < transform.localScale.x){
 			timeToFillUp -= Time.deltaTime;
 			indicator.transform.localScale = new Vector3(1,(intitialTime - timeToFillUp) / intitialTime, 1);
+			Vector3 level = indicator.transform.position;
+			level.y = yOffset * (intitialTime - timeToFillUp) / intitialTime;
+			indicator.transform.position = level;
 		}
 		if (timeToFillUp <= 0) {
 			timeToFillUp = 0;
