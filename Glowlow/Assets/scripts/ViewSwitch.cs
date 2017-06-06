@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Views {EXPLORE, FRAG, ENEMY};  
+public enum Views {EXPLORE,  ENEMY,FRAG};  
 
 public class ViewSwitch : MonoBehaviour {
 
@@ -67,7 +67,7 @@ public class ViewSwitch : MonoBehaviour {
 
         //color light for frag view
 
-        if (currentCamIndex == 2)
+		if (currentCamIndex == (int)Views.FRAG)
         {
             gameObject.transform.GetChild(0).gameObject.transform.FindChild("PlayerLight").GetComponent<Light>().color = fragViewTintColor;
         }
