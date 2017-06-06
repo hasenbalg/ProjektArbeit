@@ -24,18 +24,18 @@ public class menuScript : MonoBehaviour {
 
 	public void StartLevel(){
 		SceneManager.LoadScene ("level1");
-		print ("Start gedrückt");
+//		print ("Start gedrückt");
 	}
 	public void QuitGame(){
 		Application.Quit ();
-		print ("Game beendet");
+//		print ("Game beendet");
 	}
 
 	public void playHover(){
 		//hover.Play();
 
 		audio.PlayOneShot(impact, 0.7F);
-		print ("hoverd");
+//		print ("hoverd");
 		//hover.Play(44100);
 	}
 

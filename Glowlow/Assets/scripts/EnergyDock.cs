@@ -8,6 +8,7 @@ public class EnergyDock : MonoBehaviour {
 	private float intitialTime;
 	private GameObject indicator;
 	private GameObject player;
+	public bool isFilled = false;
 
 
 	// Use this for initialization
@@ -25,6 +26,10 @@ public class EnergyDock : MonoBehaviour {
 			timeToFillUp -= Time.deltaTime;
 			indicator.transform.localScale = new Vector3(1,(intitialTime - timeToFillUp) / intitialTime, 1);
 		}
+		if (timeToFillUp <= 0) {
+			timeToFillUp = 0;
+			isFilled = true;
+		} 
 	}
 
 
