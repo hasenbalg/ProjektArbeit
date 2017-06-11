@@ -13,6 +13,7 @@ public class MiniMap : MonoBehaviour {
 		Debug.Log (modul.name);
 		GameObject map_modul = new GameObject ();
 		map_modul.name = modul.name;
+		map_modul.tag = "MapModul";
 		map_modul.layer = LayerMask.NameToLayer("ExplorerViewLayer"); //http://answers.unity3d.com/answers/18473/view.html
 		MeshFilter mf = map_modul.AddComponent<MeshFilter> ();
 		MeshRenderer mr = map_modul.AddComponent<MeshRenderer> ();
@@ -38,6 +39,7 @@ public class MiniMap : MonoBehaviour {
 
 		}
 		mapPlayer_ = Instantiate (mapPlayer);
+		mapPlayer_.tag = "MapPlayer";
 		mapPlayer_.GetComponent<MeshRenderer> ().enabled = false;
 		mapPlayer_.transform.parent = gameObject.transform;
 		transform.localScale = new Vector3 (scaleFactor,scaleFactor,scaleFactor);
