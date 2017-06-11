@@ -20,9 +20,11 @@ public class ViewSwitch : MonoBehaviour {
 
 	Views status;
 
-
+	public AudioClip sound;
+	private AudioSource ac;
 
     void Start() {
+		ac = GetComponent<AudioSource> ();
 		cameras = new Camera[]{ explorerView, enemiesVisibleView, fragView};
 
 		cameras [0].backgroundColor = Color.black;
@@ -98,7 +100,8 @@ public class ViewSwitch : MonoBehaviour {
 		cameras [currentCamIndex].enabled = true;
 		status = (Views)currentCamIndex;
 		Debug.Log (status);
-        gameObject.GetComponent<AudioSource>().Play();
+		ac.clip = sound;
+		ac.Play ();
 	}
 
 	public Views GetStatus(){

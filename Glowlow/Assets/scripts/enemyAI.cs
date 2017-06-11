@@ -15,14 +15,15 @@ public class enemyAI : MonoBehaviour
 
 	private Transform target;
     private Rigidbody rb;
-    // private Animator myAnimator;
+	public AudioClip soundWatch, soundFollow, soundAttack;
+	private AudioSource ac;
 
 
 
     // Use this for initialization
     void Start()
     {
-        // myAnimator = GetComponent<Animator>();
+		ac = GetComponent<AudioSource> ();
         rb = GetComponent<Rigidbody>();
 		target = GameObject.FindGameObjectsWithTag("Player")[0].transform; 
     }
@@ -62,15 +63,13 @@ public class enemyAI : MonoBehaviour
 
         // rb.AddRelativeForce(Vector3.forward * moveSpeed);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        gameObject.GetComponent<AudioSource>().volume = 0.3f;
-        gameObject.GetComponent<AudioSource>().Play();
+		ac.clip = soundFollow;
+		ac.Play();
     }
 
     private void attack()
     {
-        gameObject.GetComponent<AudioSource>().volume = 1;
-        gameObject.GetComponent<AudioSource>().Play();
-        // myAnimator.SetTrigger("IsAttacking");
-        //print("fight!");
+		ac.clip = soundAttack;
+		ac.Play();
     }
 }

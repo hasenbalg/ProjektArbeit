@@ -9,9 +9,13 @@ public class PlayerEnergy : MonoBehaviour {
 	private float fullEnergy;
 	public float energy = 1000f;
 	private float fullIntensity;
-
-
+	public float lowEnergyWarnigPercent = .3f;
+	public AudioClip collectBattery;
+	public AudioClip lowEnergy;
+	private AudioSource ac;
     void Start(){
+		ac = GetComponent<AudioSource> ();
+
 		fullEnergy = energy;
 		fullIntensity = playerLight.intensity;
 	}
@@ -48,6 +52,14 @@ public class PlayerEnergy : MonoBehaviour {
 			Debug.Log("Energy clollected");
 			GainEnergy ();
 			Destroy(other.gameObject);
+			ac.clip = collectBattery;
+			ac.Play ();
+		}
+	}
+	void Update(){
+		if(energy / fullEnergy < lowEnergyWarnigPercent){
+			ac.clip = lowEnergy;
+			ac.Play ();
 		}
 	}
 

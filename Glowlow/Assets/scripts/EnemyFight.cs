@@ -9,11 +9,7 @@ public class EnemyFight : MonoBehaviour {
 	private PlayerEnergy pe;
     
 
-    void Start(){
-
-        
-        
-        
+    void Start(){        
         player = GameObject.FindGameObjectsWithTag("Player")[0];
 		pe = (PlayerEnergy) player.GetComponent(typeof(PlayerEnergy));
 	}
@@ -23,8 +19,6 @@ public class EnemyFight : MonoBehaviour {
 	{
 		if(col.gameObject.Equals(player))
 		{
-            
-            
             pe.LooseEnergy (punchImpact);
 		}
 	}
