@@ -9,7 +9,7 @@ public class SkillzzzBooster : MonoBehaviour
 	public float speedBoostCost = 1f;
 	public float mapCost = 1f;
 
-	public Camera mapCam;
+//	public Camera mapCam;
 
 	private float defaultSpeed;
 	private MoveWASD moveWASD;
