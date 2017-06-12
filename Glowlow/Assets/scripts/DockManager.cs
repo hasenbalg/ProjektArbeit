@@ -33,7 +33,8 @@ public class DockManager : MonoBehaviour {
 				Destroy (go);
 
 			}
-			SceneManager.LoadScene ("start");
+//			SceneManager.LoadScene ("start");
+			GameEnd.GameWin ();
 		}
 	}
 }

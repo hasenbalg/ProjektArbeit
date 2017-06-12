@@ -24,8 +24,9 @@ public class PlayerEnergy : MonoBehaviour {
 	public void LooseEnergy (float damage) {
 		energy -= damage;
 		playerLight.intensity = fullIntensity * (energy / fullEnergy);
-		if (energy == 0) {
-			Destroy (gameObject);
+		if (energy <= 0) {
+//			Destroy (gameObject);
+			GameEnd.GameOver ();
 		}
 	}
 
@@ -35,21 +36,12 @@ public class PlayerEnergy : MonoBehaviour {
 		LooseEnergy (energy - fullEnergy);
 	}
 
-//	void OnTriggerEnter (Collision col)
-//	{
-//		if(col.gameObject.tag == "Energy")
-//		{
-//            Debug.Log("Energy clollected");
-//			GainEnergy ();
-//			Destroy(col.gameObject);
-//		}
-//	}
 
 	void OnTriggerEnter(Collider other) {
 		//Destroy(other.gameObject);
 		if(other.gameObject.tag == "Energy")
 		{
-			Debug.Log("Energy clollected");
+//			Debug.Log("Energy clollected");
 			GainEnergy ();
 			Destroy(other.gameObject);
 			ac.clip = collectBattery;
