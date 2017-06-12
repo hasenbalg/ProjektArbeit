@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class enemyAI : MonoBehaviour
 {
 
@@ -18,13 +18,15 @@ public class enemyAI : MonoBehaviour
 	public AudioClip soundWatch, soundFollow, soundAttack;
 	private AudioSource ac;
 
-
+	NavMeshAgent agent;
 
     // Use this for initialization
     void Start()
     {
 		ac = GetComponent<AudioSource> ();
         rb = GetComponent<Rigidbody>();
+
+		agent = GetComponent<NavMeshAgent> ();
 		target = GameObject.FindGameObjectsWithTag("Player")[0].transform; 
     }
 
@@ -53,7 +55,7 @@ public class enemyAI : MonoBehaviour
     private void watch()
     {
         Vector3 direction = target.position - transform.position;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), damping);
+//        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), damping);
     }
 
     private void follow()
@@ -62,7 +64,10 @@ public class enemyAI : MonoBehaviour
 
 
         // rb.AddRelativeForce(Vector3.forward * moveSpeed);
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+//        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+		agent.speed = moveSpeed;
+		agent.destination = target.position;
+
 		ac.clip = soundFollow;
 		ac.Play();
     }
