@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEnergy : MonoBehaviour {
+public class PlayerEnergy : GodModeInitalisizer {
 
 
 	public Light playerLight;
 	private float fullEnergy;
 	public float energy = 1000f;
 	private float fullIntensity;
+<<<<<<< HEAD
 	public float lowEnergyWarnigPercent = .3f;
 	public AudioClip collectBattery;
 	public AudioClip lowEnergy;
@@ -17,15 +18,21 @@ public class PlayerEnergy : MonoBehaviour {
 		ac = GetComponent<AudioSource> ();
 
 		fullEnergy = energy;
+
 		fullIntensity = playerLight.intensity;
 	}
 
+    private void Update()
+    {
+        GetGodMode().UpdateTextFieldPlayerEnergy(energy);
+    }
 
-	public void LooseEnergy (float damage) {
-		energy -= damage;
+    public void LooseEnergy (float damage) {
+        energy -= damage;
 		playerLight.intensity = fullIntensity * (energy / fullEnergy);
-		if (energy <= 0) {
-//			Destroy (gameObject);
+
+		if (energy <= 0 && !GetGodMode().IsDeathLessMode()) {
+			Destroy (gameObject);
 			GameEnd.GameOver ();
 		}
 	}

@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Views {EXPLORE,  ENEMY,FRAG};  
+public enum Views {EXPLORE,  ENEMY,FRAG};
 
-public class ViewSwitch : MonoBehaviour {
-
-
+public class ViewSwitch : GodModeInitalisizer
+{
 
 	public Camera explorerView;
 	public Camera enemiesVisibleView;
 	public Camera fragView;
-	private Camera[] cameras;
+    public Camera godModeView;
+    private Camera[] cameras;
 	private int currentCamIndex = 0;
 
     private Texture2D fragViewTint;
@@ -20,24 +20,42 @@ public class ViewSwitch : MonoBehaviour {
 
 	Views status;
 
+<<<<<<< HEAD
 	public AudioClip sound;
 	private AudioSource ac;
 
     void Start() {
-		ac = GetComponent<AudioSource> ();
-		cameras = new Camera[]{ explorerView, enemiesVisibleView, fragView};
+  		ac = GetComponent<AudioSource> ();
+  		cameras = new Camera[]{ explorerView, enemiesVisibleView, fragView};
+      GenerateCamera();
+      
 
-		cameras [0].backgroundColor = Color.black;
-		cameras [1].backgroundColor = Color.black;
-		cameras [2].backgroundColor = Color.black;
+    }
 
-		cameras [0].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
-		cameras [1].cullingMask = (1 << LayerMask.NameToLayer("EnemiesViewLayer"));
-		//cameras [2].cullingMask = (1 << LayerMask.NameToLayer("FragView"));
-		cameras [2].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
+    public void GenerateCamera(){
+        if (GetGodMode().IsFullLightMode())
+        {
+            cameras = new Camera[] { godModeView };
 
-		SwitchCamera ();
-        
+           // cameras[0].backgroundColor = Color.white;
+            cameras[0].cullingMask = (1 << LayerMask.NameToLayer("GodModeLayer"));
+        }
+        else
+        {
+
+            cameras = new Camera[] { explorerView, enemiesVisibleView, fragView };
+            cameras[0].backgroundColor = Color.black;
+            cameras[1].backgroundColor = Color.black;
+            cameras[2].backgroundColor = Color.black;
+
+            cameras[0].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
+            cameras[1].cullingMask = (1 << LayerMask.NameToLayer("EnemiesViewLayer"));
+            //cameras [2].cullingMask = (1 << LayerMask.NameToLayer("FragView"));
+            cameras[2].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
+        }
+
+        SwitchCamera();
+
     }
 
 	void Update() {

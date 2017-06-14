@@ -9,6 +9,7 @@ public class MoveWASD : MonoBehaviour {
 	public float rotSpeed;
     public float jumpSpeed ;
     public GameObject test;
+    public GameObject godModeCanvas;
     private Rigidbody rb;
     private Vector3 moveDirection = Vector3.zero;
     public float gravity = 20;
@@ -82,6 +83,9 @@ public class MoveWASD : MonoBehaviour {
         if (Input.GetKey(KeyCode.Q))
         {
             ChangeSpot(-1);
+        }
+        if( Input.GetKeyDown(KeyCode.J)) {
+            godModeCanvas.GetComponent<GodMode>().ToggleActivity();
         }
 
         //mouse
