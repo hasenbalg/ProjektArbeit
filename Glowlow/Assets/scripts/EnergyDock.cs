@@ -6,6 +6,8 @@ public class EnergyDock : MonoBehaviour {
 
 	public float timeToFillUp = 10f;
 	private float intitialTime;
+
+	public float engeryCostForPlayer = 3f;
 	private GameObject indicator;
 	private GameObject player;
 	public bool isFilled = false;
@@ -27,19 +29,33 @@ public class EnergyDock : MonoBehaviour {
 
 		indicator.transform.localScale = new Vector3 (1, 0, 1);
 		Vector3 level = indicator.transform.position;
-		level.y = yOffset;
+		level.y = 0;
 		indicator.transform.position = level;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
 		if (Vector3.Distance (player.transform.position, transform.position) < transform.localScale.x) {
 			timeToFillUp -= Time.deltaTime;
 			indicator.transform.localScale = new Vector3 (1, (intitialTime - timeToFillUp) / intitialTime, 1);
 			Vector3 level = indicator.transform.position;
 			level.y = yOffset * (intitialTime - timeToFillUp) / intitialTime;
 			indicator.transform.position = level;
+
+
+			if(timeToFillUp > 0){
+				// cost erngy for the player
+				player.GetComponent<PlayerEnergy> ().LooseEnergy(engeryCostForPlayer * Time.deltaTime);
+
+
+				//attract enemies
+				foreach(GameObject e in enemies){
+					e.GetComponent<enemyAI> ().makeMoreSenible (); 
+				}
+			}
 
 			if (!ac.isPlaying && timeToFillUp > 0) {
 				ac.Play ();
@@ -50,6 +66,11 @@ public class EnergyDock : MonoBehaviour {
 		} else {
 			if(ac.isPlaying){
 				ac.Stop ();
+			}
+
+			//attract enemies not anymore
+			foreach(GameObject e in enemies){
+				e.GetComponent<enemyAI> ().makeLessSenible (); 
 			}
 		}
 		if (timeToFillUp <= 0) {

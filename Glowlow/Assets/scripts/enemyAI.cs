@@ -10,8 +10,10 @@ public class enemyAI : MonoBehaviour
     public float watchDistance = 30f;
 	public float followDistance = 15f;
 	public float attackDistance = 5f;
+	public float attractionToDockDistance = 20f;
     public float moveSpeed = 2f;
 	public float damping = 2f;
+	private float initialFollowDistance;
 
 	private Transform target;
     private Rigidbody rb;
@@ -27,7 +29,8 @@ public class enemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
 		agent = GetComponent<NavMeshAgent> ();
-		target = GameObject.FindGameObjectsWithTag("Player")[0].transform; 
+		target = GameObject.FindGameObjectsWithTag("Player")[0].transform;
+		initialFollowDistance = followDistance;
     }
 
     // Update is called once per frame
@@ -77,4 +80,11 @@ public class enemyAI : MonoBehaviour
 		ac.clip = soundAttack;
 		ac.Play();
     }
+
+	public void makeMoreSenible(){
+		followDistance = attractionToDockDistance;
+	}
+	public void makeLessSenible(){
+		followDistance = initialFollowDistance;
+	}
 }
