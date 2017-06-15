@@ -23,6 +23,7 @@ public class GodMode : MonoBehaviour {
         textEnemiesOnField = GameObject.Find("GodModeTextEnemysCounter").GetComponentsInChildren<Text>()[1];
 
         isGodModeActive = this.GetComponent<Canvas>().gameObject.activeSelf;
+		this.ToggleActivity ();
     }
 
     void Update()

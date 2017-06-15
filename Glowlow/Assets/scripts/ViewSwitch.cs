@@ -19,8 +19,6 @@ public class ViewSwitch : GodModeInitalisizer
     public Color fragViewTintColor;
 
 	Views status;
-
-<<<<<<< HEAD
 	public AudioClip sound;
 	private AudioSource ac;
 
@@ -35,10 +33,19 @@ public class ViewSwitch : GodModeInitalisizer
     public void GenerateCamera(){
         if (GetGodMode().IsFullLightMode())
         {
-            cameras = new Camera[] { godModeView };
+          //  cameras = new Camera[] { godModeView };
 
            // cameras[0].backgroundColor = Color.white;
-            cameras[0].cullingMask = (1 << LayerMask.NameToLayer("GodModeLayer"));
+//            cameras[0].cullingMask = (1 << LayerMask.NameToLayer("GodModeLayer"));
+			cameras = new Camera[] { explorerView, enemiesVisibleView, fragView };
+			cameras[0].backgroundColor = Color.black;
+			cameras[1].backgroundColor = Color.black;
+			cameras[2].backgroundColor = Color.black;
+
+			cameras[0].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
+			cameras[1].cullingMask = (1 << LayerMask.NameToLayer("EnemiesViewLayer"));
+			//cameras [2].cullingMask = (1 << LayerMask.NameToLayer("FragView"));
+			cameras[2].cullingMask = (1 << LayerMask.NameToLayer("ExplorerViewLayer"));
         }
         else
         {

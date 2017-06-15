@@ -9,7 +9,6 @@ public class PlayerEnergy : GodModeInitalisizer {
 	private float fullEnergy;
 	public float energy = 1000f;
 	private float fullIntensity;
-<<<<<<< HEAD
 	public float lowEnergyWarnigPercent = .3f;
 	public AudioClip collectBattery;
 	public AudioClip lowEnergy;
@@ -25,6 +24,10 @@ public class PlayerEnergy : GodModeInitalisizer {
     private void Update()
     {
         GetGodMode().UpdateTextFieldPlayerEnergy(energy);
+		if(energy / fullEnergy < lowEnergyWarnigPercent){
+			ac.clip = lowEnergy;
+			ac.Play ();
+		}
     }
 
     public void LooseEnergy (float damage) {
@@ -52,12 +55,6 @@ public class PlayerEnergy : GodModeInitalisizer {
 			GainEnergy ();
 			Destroy(other.gameObject);
 			ac.clip = collectBattery;
-			ac.Play ();
-		}
-	}
-	void Update(){
-		if(energy / fullEnergy < lowEnergyWarnigPercent){
-			ac.clip = lowEnergy;
 			ac.Play ();
 		}
 	}
