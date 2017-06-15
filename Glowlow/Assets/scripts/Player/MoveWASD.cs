@@ -86,7 +86,7 @@ public class MoveWASD : MonoBehaviour {
 
         //mouse
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X")*5, 0) * Time.deltaTime * rotSpeed);
-
+		transform.FindChild("Cam&Light").transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y")*.25f, 0, 0) * Time.deltaTime * rotSpeed);
 
 
         //////////////////////////////////////////////////////
