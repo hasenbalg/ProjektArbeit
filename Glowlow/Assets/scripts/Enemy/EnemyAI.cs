@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class enemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
 
 

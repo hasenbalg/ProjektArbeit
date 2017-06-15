@@ -53,7 +53,7 @@ public class EnergyDock : MonoBehaviour {
 
 				//attract enemies
 				foreach(GameObject e in enemies){
-					e.GetComponent<enemyAI> ().makeMoreSenible (); 
+					e.GetComponent<EnemyAI> ().makeMoreSenible (); 
 				}
 			}
 
@@ -70,7 +70,7 @@ public class EnergyDock : MonoBehaviour {
 
 			//attract enemies not anymore
 			foreach(GameObject e in enemies){
-				e.GetComponent<enemyAI> ().makeLessSenible (); 
+				e.GetComponent<EnemyAI> ().makeLessSenible (); 
 			}
 		}
 		if (timeToFillUp <= 0) {
