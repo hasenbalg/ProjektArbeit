@@ -10,7 +10,7 @@ public class MiniMap : MonoBehaviour {
 	private GameObject mapPlayer_;
 
 	void BuildMap(Transform modul){
-		Debug.Log (modul.name);
+//		Debug.Log (modul.name);
 		GameObject map_modul = new GameObject ();
 		map_modul.name = modul.name;
 		map_modul.tag = "MapModul";

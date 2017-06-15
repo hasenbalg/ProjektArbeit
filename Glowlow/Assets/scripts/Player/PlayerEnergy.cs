@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerEnergy : MonoBehaviour {
 
@@ -13,11 +15,21 @@ public class PlayerEnergy : MonoBehaviour {
 	public AudioClip collectBattery;
 	public AudioClip lowEnergy;
 	private AudioSource ac;
+
+	public Texture flickerTexture;
+
+	private double nextFlicker;
+	private bool isFlickering = false;
+
     void Start(){
 		ac = GetComponent<AudioSource> ();
 
 		fullEnergy = energy;
 		fullIntensity = playerLight.intensity;
+
+
+		// add flicker on low energy
+
 	}
 
 
@@ -48,12 +60,32 @@ public class PlayerEnergy : MonoBehaviour {
 			ac.Play ();
 		}
 	}
+
 	void Update(){
 		if(energy / fullEnergy < lowEnergyWarnigPercent){
-			ac.clip = lowEnergy;
-			ac.Play ();
+			LowEnergyWarning ();
 		}
 	}
 
+	public void LowEnergyWarning(){
+		// flicker
+		double currentTime = Time.realtimeSinceStartup;
+		if (currentTime > nextFlicker) {
+			nextFlicker = Random.Range(1, 5) + currentTime;
+			isFlickering = true;
 
+			ac.clip = lowEnergy;
+			ac.Play ();
+		} else {
+			isFlickering = false;
+		}
+
+
+	}
+
+	void OnGUI() {
+		if(isFlickering){
+			GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), flickerTexture);
+		}
+	}
 }

@@ -12,7 +12,7 @@ public class AddNavMeshSourceTag : MonoBehaviour {
 
 		for (int i=0; i < gameObjects.Length; i++){
 			if(gameObjects[i].name.Contains(name)){
-				print(gameObjects[i] + "  : " + i);
+//				print(gameObjects[i] + "  : " + i);
 				gameObjects [i].AddComponent<NavMeshSourceTag> ();
 			}
 		}

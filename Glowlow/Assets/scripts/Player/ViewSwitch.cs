@@ -107,4 +107,6 @@ public class ViewSwitch : MonoBehaviour {
 	public Views GetStatus(){
 		return status;
 	}
+
+
 }
