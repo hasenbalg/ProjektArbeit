@@ -155,7 +155,12 @@ public class MoveWASD : MonoBehaviour {
 
     //spot
     private void ChangeSpot(float i){
-        test.GetComponent<Light>().spotAngle += i;
+		if (!godModeCanvas.GetComponent<GodMode> ().IsDeathLessMode ()) {
+			test.GetComponent<Light> ().spotAngle += i;
+		} else {
+			test.GetComponent<Light> ().spotAngle = 10;
+		}
+        
     }
 
     private void DecrementSpot(){

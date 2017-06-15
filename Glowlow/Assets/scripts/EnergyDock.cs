@@ -50,7 +50,6 @@ public class EnergyDock : MonoBehaviour {
 				// cost erngy for the player
 				player.GetComponent<PlayerEnergy> ().LooseEnergy(engeryCostForPlayer * Time.deltaTime);
 
-
 				//attract enemies
 				foreach(GameObject e in enemies){
 					e.GetComponent<enemyAI> ().makeMoreSenible (); 
