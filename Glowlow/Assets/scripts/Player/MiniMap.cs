@@ -65,7 +65,10 @@ public class MiniMap : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 position = GameObject.Find ("Player").transform.position;
-//		mapPlayer_.transform.localPosition = position* mapPlayer_.transform.localScale;
 		mapPlayer_.transform.localPosition = Vector3.Scale (position, mapPlayer_.transform.localScale);
+
+
+		transform.localRotation = Quaternion.Euler( GameObject.Find ("Player").transform.rotation.eulerAngles * -1f);
+
 	}
 }
