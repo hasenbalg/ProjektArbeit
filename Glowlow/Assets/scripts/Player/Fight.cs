@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFight : MonoBehaviour {
+public class Fight : MonoBehaviour {
 
 	public Light lamp;
 	public float punchImpact;

@@ -6,12 +6,12 @@ public class EnemyFight : MonoBehaviour {
 
 	public float punchImpact;
 	private GameObject player;
-	private PlayerEnergy pe;
+	private Energy pe;
     
 
     void Start(){        
         player = GameObject.FindGameObjectsWithTag("Player")[0];
-		pe = (PlayerEnergy) player.GetComponent(typeof(PlayerEnergy));
+		pe = (Energy) player.GetComponent(typeof(Energy));
 	}
 
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class EnemyAI : MonoBehaviour
+public class AI : MonoBehaviour
 {
 
 
@@ -16,7 +16,6 @@ public class EnemyAI : MonoBehaviour
 	private float initialFollowDistance;
 
 	private Transform target;
-    private Rigidbody rb;
 	public AudioClip soundWatch, soundFollow, soundAttack;
 	private AudioSource ac;
 
@@ -26,7 +25,6 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
 		ac = GetComponent<AudioSource> ();
-        rb = GetComponent<Rigidbody>();
 
 		agent = GetComponent<NavMeshAgent> ();
 		target = GameObject.FindGameObjectsWithTag("Player")[0].transform;
@@ -57,7 +55,7 @@ public class EnemyAI : MonoBehaviour
 
     private void watch()
     {
-        Vector3 direction = target.position - transform.position;
+//        Vector3 direction = target.position - transform.position;
 //        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), damping);
     }
 
@@ -65,9 +63,6 @@ public class EnemyAI : MonoBehaviour
     {
        // myAnimator.SetTrigger("IsWalking");
 
-
-        // rb.AddRelativeForce(Vector3.forward * moveSpeed);
-//        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 		agent.speed = moveSpeed;
 		agent.destination = target.position;
 

@@ -48,12 +48,12 @@ public class EnergyDock : MonoBehaviour {
 
 			if(timeToFillUp > 0){
 				// cost erngy for the player
-				player.GetComponent<PlayerEnergy> ().LooseEnergy(engeryCostForPlayer * Time.deltaTime);
+				player.GetComponent<Energy> ().LooseEnergy(engeryCostForPlayer * Time.deltaTime);
 
 
 				//attract enemies
 				foreach(GameObject e in enemies){
-					e.GetComponent<EnemyAI> ().makeMoreSenible (); 
+					e.GetComponent<AI> ().makeMoreSenible (); 
 				}
 			}
 
@@ -70,7 +70,7 @@ public class EnergyDock : MonoBehaviour {
 
 			//attract enemies not anymore
 			foreach(GameObject e in enemies){
-				e.GetComponent<EnemyAI> ().makeLessSenible (); 
+				e.GetComponent<AI> ().makeLessSenible (); 
 			}
 		}
 		if (timeToFillUp <= 0) {

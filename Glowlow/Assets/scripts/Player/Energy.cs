@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class PlayerEnergy : MonoBehaviour {
+public class Energy : MonoBehaviour {
 
 
 	public Light playerLight;

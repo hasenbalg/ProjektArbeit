@@ -9,81 +9,62 @@ public class SkillzzzBooster : MonoBehaviour
 	public float speedBoostCost = 1f;
 	public float mapCost = 1f;
 
-//	public Camera mapCam;
-
-	private float defaultSpeed;
-	private MoveWASD moveWASD;
-	private bool controller_X_pressed = false, controller_Y_pressed = false;
 	private bool showMap = false;
 
-	PlayerEnergy pe;
-	MiniMap mm;
+	private Move mv;
+	private Energy pe;
+	private MiniMap mm;
+	private HUDManager hm;
+	private ViewSwitch vs;
 
-	// Use this for initialization
+	double lastTimeToggledHUD;
+
 	void Start ()
 	{
-		moveWASD = gameObject.GetComponent<MoveWASD> ();
-		defaultSpeed = moveWASD.speed;
-
-		pe = (PlayerEnergy)GetComponent (typeof(PlayerEnergy));
-
+		mv = gameObject.GetComponent<Move> ();
+		pe = (Energy)GetComponent (typeof(Energy));
 		mm = (MiniMap)transform.FindChild ("Map").GetComponent<MiniMap> ();
+		hm = (HUDManager)transform.FindChild ("HUD").GetComponent<HUDManager> ();
+		vs = (ViewSwitch)transform.GetComponent<ViewSwitch> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		//SPEEDBOOST
-		if (Input.GetKeyDown (KeyCode.LeftShift)) { 
+		if (Input.GetButtonDown ("X360_X") || Input.GetKeyDown (KeyCode.LeftShift)) { 
 			ToggleSpeedBoost ();
-			pe.LooseEnergy (speedBoostCost);
+			pe.LooseEnergy (speedBoostCost * Time.deltaTime);
 		} 
-		if (Input.GetKeyUp (KeyCode.LeftShift)){
-			ToggleSpeedBoost ();
-		}
-
-		//Controller
-		if (Input.GetButtonDown ("X360_X")) {
-			ToggleSpeedBoost ();
-			pe.LooseEnergy (speedBoostCost);
-		}
-
-		if (Input.GetButtonUp ("X360_X")) {
+		if (Input.GetButtonUp ("X360_X") || Input.GetKeyUp (KeyCode.LeftShift)){
 			ToggleSpeedBoost ();
 		}
 
 
 		//MAP
-		//Controller
-		if (Input.GetButtonDown ("X360_Y")) {
+		if (Input.GetKeyDown (KeyCode.Tab) || Input.GetButtonDown ("X360_Y")) {
 			mm.ToggleMap ();
-			pe.LooseEnergy (mapCost);
+			pe.LooseEnergy (mapCost * Time.deltaTime);
 		}
 
-		if (Input.GetButtonUp ("X360_Y")) {
-			mm.ToggleMap ();
-		}
-
-
-		//TAB KEY
-		if (Input.GetKeyDown (KeyCode.Tab)) {
-			mm.ToggleMap ();
-			pe.LooseEnergy (mapCost);
-		}
-		if (Input.GetKeyUp (KeyCode.Tab)) {
+		if (Input.GetKeyUp (KeyCode.Tab) || Input.GetButtonUp ("X360_Y")) {
 			mm.ToggleMap ();
 		}
 
+
+		//HUD
+		if ((Input.GetButton("X360_B") || Input.GetKey(KeyCode.R)) && lastTimeToggledHUD + .3 < Time.realtimeSinceStartup &&  vs.GetStatus() == Views.EXPLORE) {
+			hm.ToggleHUD ();
+			mv.ToggleFreeze ();
+			lastTimeToggledHUD = Time.realtimeSinceStartup;
+		}
 	}
 
 
 
 	private void ToggleSpeedBoost ()
 	{
-		if (moveWASD.speed == defaultSpeed) {
-			moveWASD.speed = defaultSpeed + speedBoostVelocity;
-		} else {
-			moveWASD.speed = defaultSpeed;
-		}
+		mv.ToggleFaster (speedBoostVelocity);
 	}
 }
