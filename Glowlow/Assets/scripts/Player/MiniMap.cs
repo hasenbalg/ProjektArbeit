@@ -9,6 +9,10 @@ public class MiniMap : MonoBehaviour {
 	public GameObject mapPlayer;
 	private GameObject mapPlayer_;
 
+	[Header("hololight")]
+	public Light holoLight;
+	public float holoLightIntensity;
+
 	void BuildMap(Transform modul){
 //		Debug.Log (modul.name);
 		GameObject map_modul = new GameObject ();
@@ -44,6 +48,7 @@ public class MiniMap : MonoBehaviour {
 		mapPlayer_.GetComponent<MeshRenderer> ().enabled = false;
 		mapPlayer_.transform.SetParent (transform, false);
 		transform.localScale = new Vector3 (scaleFactor,scaleFactor,scaleFactor);
+		holoLight.intensity = 0;
 
 	}
 
@@ -53,11 +58,13 @@ public class MiniMap : MonoBehaviour {
 				child.GetComponent<MeshRenderer> ().enabled = false;
 			}
 			mapPlayer_.GetComponent<MeshRenderer> ().enabled = false;
+			holoLight.intensity = 0;
 		} else {
 			foreach (Transform child in transform) {
 				child.GetComponent<MeshRenderer> ().enabled = true;
 			}
 			mapPlayer_.GetComponent<MeshRenderer> ().enabled = true;
+			holoLight.intensity = holoLightIntensity;
 		}
 		
 	}

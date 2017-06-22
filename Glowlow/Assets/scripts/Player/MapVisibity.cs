@@ -5,6 +5,8 @@ using UnityEngine;
 public class MapVisibity : MonoBehaviour {
 	public float howLongIsTheModulVisible = 30f;
 	public Material invisibleMat;
+
+
 	private Material visibleMat;
 	private double[] timeLastVisit;
 	private GameObject player;

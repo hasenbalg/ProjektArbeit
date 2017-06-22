@@ -124,14 +124,13 @@ public class Move : MonoBehaviour {
 
     
 
-	public void ToggleFreeze(){
-		if(currentSpeed == 0){
-			currentSpeed = normalSpeed;
-			currentRotSpeed = rotSpeed;
-		}else{
+	public void ToggleFreeze(bool toggle){
+		if (toggle) {
 			currentSpeed = 0;
-			currentRotSpeed = 0;
+		} else {
+			currentSpeed = normalSpeed;
 		}
+
 	}
 
 	public void ToggleSlower(){

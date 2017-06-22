@@ -27,6 +27,9 @@ public class HUDManager: MonoBehaviour{
 
 	public Mesh[] icons;
 
+	private Light spot;
+	public float lightIntensity;
+
 	void Start (){
 
 		string[] skillz = System.Enum.GetNames (typeof(Skillz));
@@ -37,6 +40,8 @@ public class HUDManager: MonoBehaviour{
 			skill.GetComponent<SkillLevels> ().SetMesh (icons[i]);
 			skillLabels [i] = skill;
 		}
+
+		spot = (Light)transform.Find ("HUDLight").gameObject.GetComponent<Light>();
 
 		//enable available points
 
@@ -102,9 +107,11 @@ public class HUDManager: MonoBehaviour{
 		if (isActive) {
 			isActive = false;
 			ToggelMeshRendererRecursivly (transform, false);
+			spot.intensity = 0;
 		} else {
 			isActive = true;
 			ToggelMeshRendererRecursivly (transform, true);
+			spot.intensity = lightIntensity;
 		}
 	}
 
