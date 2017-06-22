@@ -22,10 +22,12 @@ public class Move : MonoBehaviour {
     
 	private float lastSpeed;
 
+	private Energy nrg;
 
 	void Start () {
 		currentSpeed = normalSpeed;
 		currentRotSpeed = rotSpeed;
+		nrg = GetComponent<Energy> ();
 	}
 
     // Update is called once per frame
@@ -33,15 +35,16 @@ public class Move : MonoBehaviour {
 
         // Movement
         CharacterController controller = GetComponent<CharacterController>();
-        if (controller.isGrounded)
-        {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= currentSpeed;
+		if (controller.isGrounded) {
+			moveDirection = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+			moveDirection = transform.TransformDirection (moveDirection);
+			moveDirection *= currentSpeed;
 
-        }
-        moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
+		} else {
+			moveDirection.y -= gravity * Time.deltaTime;
+		}
+
+		controller.Move(moveDirection * Time.deltaTime);
 
 
         if (Input.GetKey(KeyCode.E))
@@ -67,7 +70,6 @@ public class Move : MonoBehaviour {
         float rStickX = Input.GetAxis("X360_R_Stick_X");
         float rStickY = Input.GetAxis("X360_R_Stick_Y");
 
-//		Vector3 rot = transform.FindChild ("Cam&Light").transform.localEulerAngles;
 
 		transform.Rotate(new Vector3(0, rStickX *5, 0) * Time.deltaTime * currentRotSpeed);
 		// cam up & down
@@ -81,9 +83,7 @@ public class Move : MonoBehaviour {
 		ChangeSpot(Input.GetAxis("X360_Triggers") * -1);
         ChangeSpot(Input.GetAxis("X360_Triggers_Linux") * +1);
 
-  
-
-        
+  		Debug.Log (currentSpeed);      
     }
 
     private void MoveForward(){
@@ -119,34 +119,43 @@ public class Move : MonoBehaviour {
 		}else if(lamp.GetComponent<Light>().spotAngle < minAngleSpot){
 			lamp.GetComponent<Light> ().spotAngle = minAngleSpot;
 		}
+
+		nrg.LooseEnergyOverTime(lamp.GetComponent<Light> ().spotAngle);
     }
 
 
     
 
-	public void ToggleFreeze(bool toggle){
-		if (toggle) {
-			currentSpeed = 0;
-		} else {
-			currentSpeed = normalSpeed;
-		}
+//	public void ToggleFreeze(bool toggle){
+//		if (toggle) {
+//			currentSpeed = 0;
+//		} else {
+//			currentSpeed = normalSpeed;
+//		}
+//
+//	}
+//
+//	public void ToggleSlower(){
+//		if(currentSpeed > reducedSpeed){
+//			currentSpeed = reducedSpeed;
+//		}else if(currentSpeed == reducedSpeed){
+//			currentSpeed = normalSpeed;
+//		}
+//	}
 
+//	public void ToggleFaster(float boosterSpeed){
+//		if(currentSpeed == normalSpeed){
+//			currentSpeed = boosterSpeed;
+//		}else if(currentSpeed > normalSpeed){
+//			currentSpeed = normalSpeed;
+//		}
+//	}
+
+	public void SetCurrentSpeed(float newSpeed){
+		currentSpeed = newSpeed;
 	}
-
-	public void ToggleSlower(){
-		if(currentSpeed > reducedSpeed){
-			currentSpeed = reducedSpeed;
-		}else if(currentSpeed == reducedSpeed){
-			currentSpeed = normalSpeed;
-		}
-	}
-
-	public void ToggleFaster(float boosterSpeed){
-		if(currentSpeed == normalSpeed){
-			currentSpeed = boosterSpeed;
-		}else if(currentSpeed > normalSpeed){
-			currentSpeed = normalSpeed;
-		}
+	public void SetCurrentSpeed(){
+		currentSpeed = normalSpeed;
 	}
 
 

@@ -21,6 +21,7 @@ public class SkillzzzBooster : MonoBehaviour
 
 	bool HUDon = false;
 	bool MAPon = false;
+	bool speedBoosterOn = false;
 
 	void Start ()
 	{
@@ -37,54 +38,40 @@ public class SkillzzzBooster : MonoBehaviour
 	{
 		//SPEEDBOOST
 		if (Input.GetButtonDown ("X360_X") || Input.GetKeyDown (KeyCode.LeftShift)) { 
-			ToggleSpeedBoost ();
 			pe.LooseEnergy (speedBoostCost * Time.deltaTime);
+			speedBoosterOn = true;
 		} 
-		if (Input.GetButtonUp ("X360_X") || Input.GetKeyUp (KeyCode.LeftShift)){
-			ToggleSpeedBoost ();
+		if (Input.GetButtonUp ("X360_X") || Input.GetKeyUp (KeyCode.LeftShift)) { 
+			speedBoosterOn = false;
 		}
-
-//
-//		//MAP
-//		if (Input.GetKeyDown (KeyCode.Tab) || Input.GetButtonDown ("X360_Y")) {
-//			mm.ToggleMap ();
-//			pe.LooseEnergy (mapCost * Time.deltaTime);
-//		}
-//
-//		if (Input.GetKeyUp (KeyCode.Tab) || Input.GetButtonUp ("X360_Y")) {
-//			mm.ToggleMap ();
-//		}
 
 
 		//HUD
 		if ((Input.GetButton("X360_B") || Input.GetKey(KeyCode.R)) && lastTimeToggledHUD + .3 < Time.realtimeSinceStartup &&  vs.GetStatus() == Views.EXPLORE) {
 			HUDon = !HUDon;
 			hm.ToggleHUD ();
-//			mv.ToggleFreeze ();
 			lastTimeToggledHUD = Time.realtimeSinceStartup;
 		}
 		//MAP
 		if ((Input.GetKeyDown (KeyCode.Tab) || Input.GetButtonDown ("X360_Y")) && lastTimeToggledHUD + .3 < Time.realtimeSinceStartup &&  vs.GetStatus() == Views.EXPLORE) {
 			MAPon = !MAPon;
 			mm.ToggleMap ();
-//			mv.ToggleFreeze ();
 			lastTimeToggledHUD = Time.realtimeSinceStartup;
 			pe.LooseEnergy (mapCost * Time.deltaTime);
 		}
 
-		if (MAPon || HUDon) {
-			mv.ToggleFreeze (true);
-		} else {
-			mv.ToggleFreeze (false);
+
+		Debug.Log ("SpeedboostOn: " + speedBoosterOn);
+		if ((MAPon || HUDon)) {
+			mv.SetCurrentSpeed (0);
+		}else if(speedBoosterOn){
+			mv.SetCurrentSpeed (speedBoostVelocity);
+		}else {
+			mv.SetCurrentSpeed ();
 		}
 
 
 	}
 
 
-
-	private void ToggleSpeedBoost ()
-	{
-		mv.ToggleFaster (speedBoostVelocity);
-	}
 }

@@ -6,17 +6,21 @@ using UnityEngine.UI;
 
 public class Energy : MonoBehaviour {
 
-
-	public Light playerLight;
-	private float fullEnergy;
 	public float energy = 1000f;
-	private float fullIntensity;
+	public float looseEnergyOverFactor = .05f;
+	[Header("Light")]
+	public Light playerLight;
 	public float lowEnergyWarnigPercent = .3f;
+	[Header("Sound")]
 	public AudioClip collectBattery;
 	public AudioClip lowEnergy;
+	public Texture flickerTexture;
+
+	private float looseEnergyOverTime = .5f;
+	private float fullEnergy;
+	private float fullIntensity;
 	private AudioSource ac;
 
-	public Texture flickerTexture;
 
 	private double nextFlicker;
 	private bool isFlickering = false;
@@ -65,6 +69,9 @@ public class Energy : MonoBehaviour {
 		if(energy / fullEnergy < lowEnergyWarnigPercent){
 			LowEnergyWarning ();
 		}
+
+		//loose energy over time
+		energy -= (looseEnergyOverTime * Time.deltaTime);
 	}
 
 	public void LowEnergyWarning(){
@@ -81,6 +88,10 @@ public class Energy : MonoBehaviour {
 		}
 
 
+	}
+
+	public void LooseEnergyOverTime(float angle){
+		looseEnergyOverTime = angle * looseEnergyOverFactor;
 	}
 
 	void OnGUI() {

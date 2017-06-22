@@ -10,6 +10,7 @@ public class AI : MonoBehaviour
     public float watchDistance = 30f;
 	public float followDistance = 15f;
 	public float attackDistance = 5f;
+	public float playerDistance = 1f;
 	public float attractionToDockDistance = 20f;
     public float moveSpeed = 2f;
 	public float damping = 2f;
@@ -51,6 +52,8 @@ public class AI : MonoBehaviour
             attack();
         }
 
+
+
     }
 
     private void watch()
@@ -75,6 +78,8 @@ public class AI : MonoBehaviour
 		ac.clip = soundAttack;
 		ac.Play();
     }
+
+
 
 	public void makeMoreSenible(){
 		followDistance = attractionToDockDistance;
