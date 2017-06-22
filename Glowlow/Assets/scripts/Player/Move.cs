@@ -121,13 +121,6 @@ public class Move : MonoBehaviour {
 		}
     }
 
-//	private void DecrementSpot(float i){
-//		lamp.GetComponent<Light>().spotAngle += i;
-//		Debug.Log (lamp.GetComponent<Light>().spotAngle);
-//		if(lamp.GetComponent<Light>().spotAngle < minAngleSpot){
-//			lamp.GetComponent<Light> ().spotAngle = minAngleSpot;
-//		}
-//    }
 
     
 

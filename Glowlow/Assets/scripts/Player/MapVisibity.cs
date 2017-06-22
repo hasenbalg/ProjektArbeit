@@ -33,6 +33,7 @@ public class MapVisibity : MonoBehaviour {
 
 			if (currentTime - timeLastVisit [i] >= howLongIsTheModulVisible) {
 				modules [i].GetComponent<Renderer> ().material = invisibleMat;
+//				modules [i].GetComponent<Renderer> ().material = visibleMat;
 			} else {
 				modules [i].GetComponent<Renderer> ().material = visibleMat;
 			}

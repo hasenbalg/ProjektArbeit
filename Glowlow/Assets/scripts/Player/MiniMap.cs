@@ -22,7 +22,8 @@ public class MiniMap : MonoBehaviour {
 		mr.material = material;
 		mr.enabled = false;
 		map_modul.transform.Rotate(modul.eulerAngles);
-		map_modul.transform.parent = gameObject.transform;
+//		map_modul.transform.parent = gameObject.transform;
+		map_modul.transform.SetParent (transform, false);
 	}
 
 	// Use this for initialization
@@ -41,7 +42,7 @@ public class MiniMap : MonoBehaviour {
 		mapPlayer_ = Instantiate (mapPlayer);
 		mapPlayer_.tag = "MapPlayer";
 		mapPlayer_.GetComponent<MeshRenderer> ().enabled = false;
-		mapPlayer_.transform.parent = gameObject.transform;
+		mapPlayer_.transform.SetParent (transform, false);
 		transform.localScale = new Vector3 (scaleFactor,scaleFactor,scaleFactor);
 
 	}
@@ -65,10 +66,10 @@ public class MiniMap : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 position = GameObject.Find ("Player").transform.position;
-		mapPlayer_.transform.localPosition = Vector3.Scale (position, mapPlayer_.transform.localScale);
+		mapPlayer_.transform.localPosition = Vector3.Scale (position, mapPlayer_.transform.localScale *.5f);
 
 
-		transform.localRotation = Quaternion.Euler( GameObject.Find ("Player").transform.rotation.eulerAngles * -1f);
+//		transform.localRotation = Quaternion.Euler( GameObject.Find ("Player").transform.rotation.eulerAngles * -1f);
 
 	}
 }
