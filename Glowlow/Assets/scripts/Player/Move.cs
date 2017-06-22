@@ -13,7 +13,11 @@ public class Move : MonoBehaviour {
 	public float gravity = 20;
 	[Space(10)]
 //    public float jumpSpeed ;
+
+	[Header("Lamp")]
     public GameObject lamp;
+	public float minAngleSpot;
+	public float maxAngleSpot;
     private Vector3 moveDirection = Vector3.zero;
     
 	private float lastSpeed;
@@ -109,12 +113,21 @@ public class Move : MonoBehaviour {
 
     //spot
     private void ChangeSpot(float i){
-        lamp.GetComponent<Light>().spotAngle += i;
+		lamp.GetComponent<Light>().spotAngle += i;
+		if(lamp.GetComponent<Light>().spotAngle > maxAngleSpot){
+			lamp.GetComponent<Light> ().spotAngle = maxAngleSpot;
+		}else if(lamp.GetComponent<Light>().spotAngle < minAngleSpot){
+			lamp.GetComponent<Light> ().spotAngle = minAngleSpot;
+		}
     }
 
-    private void DecrementSpot(){
-        lamp.GetComponent<Light>().spotAngle--;
-    }
+//	private void DecrementSpot(float i){
+//		lamp.GetComponent<Light>().spotAngle += i;
+//		Debug.Log (lamp.GetComponent<Light>().spotAngle);
+//		if(lamp.GetComponent<Light>().spotAngle < minAngleSpot){
+//			lamp.GetComponent<Light> ().spotAngle = minAngleSpot;
+//		}
+//    }
 
     
 
