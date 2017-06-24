@@ -20,7 +20,7 @@ public class EnergyDock : MonoBehaviour {
 	void Start () {
 		intitialTime = timeToFillUp;
 		player = GameObject.Find ("Player");
-		indicator = transform.FindChild("Indicator 1").gameObject;
+		indicator = transform.Find("Indicator 1").gameObject;
 		//Debug.Log ( transform.localScale);
 		yOffset = indicator.transform.position.y;
 

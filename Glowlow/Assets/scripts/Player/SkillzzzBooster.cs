@@ -5,7 +5,20 @@ using UnityEngine;
 public class SkillzzzBooster : MonoBehaviour
 {
 
-	public float speedBoostVelocity = 5.0f;
+
+	[Header("Levels")]
+	public float [] speedBoosterLevel;
+	private int currentSpeedBoosterLevelIndex = 0;
+	[Space(10)]
+	public float [] lightBoosterLevel;
+	private int currentLightBoosterLevelIndex = 0;
+	[Space(10)]
+	public float [] mapBoosterLevel;
+	private int currentMapBoosterLevelIndex = 0;
+	[Space(10)]
+
+
+	//public float speedBoosterLevel[currentSpeedBoosterLevelIndex] = 5.0f;
 	public float speedBoostCost = 1f;
 	public float mapCost = 1f;
 
@@ -27,8 +40,8 @@ public class SkillzzzBooster : MonoBehaviour
 	{
 		mv = gameObject.GetComponent<Move> ();
 		pe = (Energy)GetComponent (typeof(Energy));
-		mm = (MiniMap)transform.FindChild ("Map").GetComponent<MiniMap> ();
-		hm = (HUDManager)transform.FindChild ("HUD").GetComponent<HUDManager> ();
+		mm = (MiniMap)transform.Find ("Map").GetComponent<MiniMap> ();
+		hm = (HUDManager)transform.Find ("HUD").GetComponent<HUDManager> ();
 		vs = (ViewSwitch)transform.GetComponent<ViewSwitch> ();
 
 	}
@@ -65,9 +78,14 @@ public class SkillzzzBooster : MonoBehaviour
 		if ((MAPon || HUDon)) {
 			mv.SetCurrentSpeed (0);
 		}else if(speedBoosterOn){
-			mv.SetCurrentSpeed (speedBoostVelocity);
+			mv.SetCurrentSpeed (speedBoosterLevel[currentSpeedBoosterLevelIndex]);
 		}else {
 			mv.SetCurrentSpeed ();
+		}
+
+		// get level index
+		if(GameObject.Find("HUDSpeedBars") != null){
+			currentSpeedBoosterLevelIndex = GameObject.Find("HUDSpeedBars").GetComponent<SkillLevels>().level;
 		}
 
 

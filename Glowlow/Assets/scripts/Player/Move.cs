@@ -59,11 +59,11 @@ public class Move : MonoBehaviour {
         //mouse
 		transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X")*5, 0) * Time.deltaTime * currentRotSpeed);
 
-		Vector3 rot = transform.FindChild ("Cam&Light").transform.localEulerAngles;
+		Vector3 rot = transform.Find ("Cam&Light").transform.localEulerAngles;
 		rot.x -= Input.GetAxis ("Mouse Y");
 		rot.x = (rot.x > 180) ? rot.x - 360 : rot.x;
 		rot.x = Mathf.Clamp (rot.x, -20f, 20f);
-		transform.FindChild("Cam&Light").transform.localEulerAngles = new Vector3( rot.x, 0, 0);
+		transform.Find("Cam&Light").transform.localEulerAngles = new Vector3( rot.x, 0, 0);
 
 
         //pan/tilt cam and light
@@ -74,7 +74,7 @@ public class Move : MonoBehaviour {
 		transform.Rotate(new Vector3(0, rStickX *5, 0) * Time.deltaTime * currentRotSpeed);
 		// cam up & down
 		if(rStickY != 0){
-			transform.FindChild ("Cam&Light").transform.localEulerAngles = new Vector3( rStickY * 20f ,rot.y, rot.z);
+			transform.Find ("Cam&Light").transform.localEulerAngles = new Vector3( rStickY * 20f ,rot.y, rot.z);
 
 		}
 
@@ -86,30 +86,7 @@ public class Move : MonoBehaviour {
   		Debug.Log (currentSpeed);      
     }
 
-    private void MoveForward(){
-        transform.Translate(Vector3.forward * Time.deltaTime * currentSpeed);
-    }
-
-    private void MoveBackward(){
-        transform.Translate(Vector3.back * Time.deltaTime * currentSpeed);
-    }
-
-	private void MoveRight(){
-		transform.Translate(Vector3.right * Time.deltaTime * currentSpeed);
-	}
-
-	private void MoveLeft(){
-		transform.Translate(Vector3.right * -1 * Time.deltaTime * currentSpeed);
-	}
-
-    private void TurnLeft() {
-		transform.Rotate(Vector3.down * Time.deltaTime * currentRotSpeed);
-    }
-
-    private void TurnRight(){
-		transform.Rotate(Vector3.up * Time.deltaTime * currentRotSpeed);
-    }
-
+    
 
     //spot
     private void ChangeSpot(float i){
@@ -124,32 +101,6 @@ public class Move : MonoBehaviour {
     }
 
 
-    
-
-//	public void ToggleFreeze(bool toggle){
-//		if (toggle) {
-//			currentSpeed = 0;
-//		} else {
-//			currentSpeed = normalSpeed;
-//		}
-//
-//	}
-//
-//	public void ToggleSlower(){
-//		if(currentSpeed > reducedSpeed){
-//			currentSpeed = reducedSpeed;
-//		}else if(currentSpeed == reducedSpeed){
-//			currentSpeed = normalSpeed;
-//		}
-//	}
-
-//	public void ToggleFaster(float boosterSpeed){
-//		if(currentSpeed == normalSpeed){
-//			currentSpeed = boosterSpeed;
-//		}else if(currentSpeed > normalSpeed){
-//			currentSpeed = normalSpeed;
-//		}
-//	}
 
 	public void SetCurrentSpeed(float newSpeed){
 		currentSpeed = newSpeed;

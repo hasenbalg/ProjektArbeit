@@ -36,6 +36,7 @@ public class HUDManager: MonoBehaviour{
 		skillLabels = new GameObject[skillz.Length];
 		for (int i = 0; i < skillz.Length; i++) {
 			GameObject skill = Instantiate (skillTemplate,Vector3.right * i * verticalDistance,Quaternion.identity);
+			skill.name = "HUD" + System.Enum.GetName(typeof(Skillz), i) + "Bars";
 			skill.transform.SetParent (transform, false);
 			skill.GetComponent<SkillLevels> ().SetMesh (icons[i]);
 			skillLabels [i] = skill;
