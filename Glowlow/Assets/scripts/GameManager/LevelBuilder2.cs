@@ -11,7 +11,7 @@ public class LevelBuilder2 : MonoBehaviour
 	public GameObject[] i, g, p, t;
 	public float tileSize;
 
-	string[] map = {
+	string[] map1 = {
 		"╔╗╔══╗O╔═════╗",
 		"║╚╝OO║O║OOOOO║",
 		"╚╗O╔╗╚═╬╦══╦═╣",
@@ -20,7 +20,19 @@ public class LevelBuilder2 : MonoBehaviour
 		"╚══╬══╦╣O╔╗╠═╣",
 		"OOO╚══╩╩═╩╝╚═╝"
 	};
-
+	string[] map = {
+	"╔═╦═══╦═╦═══╦═╗",
+	"╠╗╚╗O╔╩╦╩╗O╔╝╔╣",
+	"║╚╗╚═╣O║O╠═╝╔╝║",
+	"║╔╝OO╚═╬═╝OO╚╗║",
+	"╠╝OOO╔═╬═╗OOO╚╣",
+	"╠╦═══╣O║O╠═══╦╣",
+	"╠╝O╔═╣O║O╠═╗O╚╣",
+	"║╔═╝O╚═╬═╝O╚═╗║",
+	"╠╝OOO╔═╬═╗OOO╚╣",
+	"╠══╗O╚╦╩╦╝O╔══╣",
+	"╚══╩══╩═╩══╩══╝"
+	};
 	void Awake ()
 	{
 		BuildLevel ();

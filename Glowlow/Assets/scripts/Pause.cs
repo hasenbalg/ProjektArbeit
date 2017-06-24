@@ -32,7 +32,7 @@ public class Pause : MonoBehaviour {
 
 	void OnGUI() {
 		if(isPause){
-			int seed = Time.renderedFrameCount % Random.Range (0, 10);
+			int seed = Time.renderedFrameCount % Random.Range (1, 10);
 			switch(seed){
 			case 1:
 				GUI.DrawTexture (new Rect (Screen.width, 0, -Screen.width, Screen.height), flickerTexture);
