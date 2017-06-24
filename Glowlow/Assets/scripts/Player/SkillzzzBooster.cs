@@ -30,6 +30,7 @@ public class SkillzzzBooster : MonoBehaviour
 	private MapVisibity mvis;
 	private HUDManager hm;
 	private ViewSwitch vs;
+	private Fight fgt;
 
 	double lastTimeToggledHUD;
 
@@ -45,6 +46,7 @@ public class SkillzzzBooster : MonoBehaviour
 		mvis = (MapVisibity)transform.Find ("Map").GetComponent<MapVisibity> ();
 		hm = (HUDManager)transform.Find ("HUD").GetComponent<HUDManager> ();
 		vs = (ViewSwitch)transform.GetComponent<ViewSwitch> ();
+		fgt = (Fight)transform.GetComponent<Fight> ();
 
 
 	}
@@ -95,6 +97,10 @@ public class SkillzzzBooster : MonoBehaviour
 			mvis.GetComponent<MapVisibity> ().SetHowLongTheMapIsVisible( mapBoosterLevel[currentMapBoosterLevelIndex ]);
 		}
 
+		if(GameObject.Find("HUDLightBars") != null){
+			currentLightBoosterLevelIndex = GameObject.Find("HUDLightBars").GetComponent<SkillLevels>().level;
+			transform.GetComponent<Fight> ().SetLampRange( lightBoosterLevel[currentLightBoosterLevelIndex ]);
+		}
 
 			
 

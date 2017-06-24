@@ -6,8 +6,8 @@ public class Fight : MonoBehaviour {
 
 	public Light lamp;
 	public float punchImpact;
-	[Range(.01f, 1f)]
-	public float lampRange;
+//	[Range(.01f, 1f)]
+	private float lampRange;
 	ViewSwitch vs;
 
 	void Start()
@@ -38,7 +38,7 @@ public class Fight : MonoBehaviour {
 			}
 		}
 
-
+		Debug.Log (lampRange);
 	}
 
 	private void hit_enemy(GameObject enemy, float lampOpenAngle){
@@ -50,5 +50,9 @@ public class Fight : MonoBehaviour {
 			other.LooseEnergy(punchImpact);
 
 		}
+	}
+
+	public void SetLampRange(float attackDistance){
+		lampRange = attackDistance;
 	}
 }
