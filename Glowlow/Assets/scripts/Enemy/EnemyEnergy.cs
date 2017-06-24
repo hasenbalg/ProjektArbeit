@@ -20,6 +20,10 @@ public class EnemyEnergy : MonoBehaviour {
 		if (energy == 0) {
 			ac.clip = deathSound;
 			ac.Play ();
+			HUDManager hm = GameObject.Find ("HUD").GetComponent<HUDManager> ();
+			if(hm.available < hm.GetMaxAvailable()){
+				hm.available += 1;
+			}
 			Destroy (gameObject);
 		}
 	}

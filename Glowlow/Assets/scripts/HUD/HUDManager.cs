@@ -15,6 +15,7 @@ public class HUDManager: MonoBehaviour{
 	public float verticalDistance = 2f;
 
 	[Range (0, 5)]
+	private int maxAvailable = 5;
 	public int available;
 	public Material bright, dark, highlight;
 
@@ -124,6 +125,10 @@ public class HUDManager: MonoBehaviour{
 			ToggelMeshRendererRecursivly (child, status);
 		}
 
+	}
+
+	public int GetMaxAvailable(){
+		return maxAvailable;
 	}
 
 

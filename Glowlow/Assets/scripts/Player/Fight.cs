@@ -38,7 +38,6 @@ public class Fight : MonoBehaviour {
 			}
 		}
 
-		Debug.Log (lampRange);
 	}
 
 	private void hit_enemy(GameObject enemy, float lampOpenAngle){
