@@ -61,7 +61,7 @@ public class HUDManager: MonoBehaviour{
 		if (lastTriggered + .3 < Time.realtimeSinceStartup && isActive) {
 				
 			if (Input.GetAxis ("Horizontal") > 0 && currentHighlightSkill < skillLabels.Length - 1) {
-				Debug.Log (Time.realtimeSinceStartup - currentHighlightSkill);
+				//Debug.Log (Time.realtimeSinceStartup - currentHighlightSkill);
 
 				currentHighlightSkill++;
 				Mark ();

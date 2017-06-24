@@ -18,15 +18,16 @@ public class SkillzzzBooster : MonoBehaviour
 	[Space(10)]
 
 
-	//public float speedBoosterLevel[currentSpeedBoosterLevelIndex] = 5.0f;
 	public float speedBoostCost = 1f;
 	public float mapCost = 1f;
+	public Mesh antLowPoly;
 
 	private bool showMap = false;
 
 	private Move mv;
 	private Energy pe;
 	private MiniMap mm;
+	private MapVisibity mvis;
 	private HUDManager hm;
 	private ViewSwitch vs;
 
@@ -41,8 +42,10 @@ public class SkillzzzBooster : MonoBehaviour
 		mv = gameObject.GetComponent<Move> ();
 		pe = (Energy)GetComponent (typeof(Energy));
 		mm = (MiniMap)transform.Find ("Map").GetComponent<MiniMap> ();
+		mvis = (MapVisibity)transform.Find ("Map").GetComponent<MapVisibity> ();
 		hm = (HUDManager)transform.Find ("HUD").GetComponent<HUDManager> ();
 		vs = (ViewSwitch)transform.GetComponent<ViewSwitch> ();
+
 
 	}
 	
@@ -74,7 +77,7 @@ public class SkillzzzBooster : MonoBehaviour
 		}
 
 
-		Debug.Log ("SpeedboostOn: " + speedBoosterOn);
+//		Debug.Log ("SpeedboostOn: " + speedBoosterOn);
 		if ((MAPon || HUDon)) {
 			mv.SetCurrentSpeed (0);
 		}else if(speedBoosterOn){
@@ -87,9 +90,18 @@ public class SkillzzzBooster : MonoBehaviour
 		if(GameObject.Find("HUDSpeedBars") != null){
 			currentSpeedBoosterLevelIndex = GameObject.Find("HUDSpeedBars").GetComponent<SkillLevels>().level;
 		}
+		if(GameObject.Find("HUDMapBars") != null){
+			currentMapBoosterLevelIndex = GameObject.Find("HUDMapBars").GetComponent<SkillLevels>().level;
+			mvis.GetComponent<MapVisibity> ().SetHowLongTheMapIsVisible( mapBoosterLevel[currentMapBoosterLevelIndex ]);
+		}
+
+
+			
 
 
 	}
+
+
 
 
 }

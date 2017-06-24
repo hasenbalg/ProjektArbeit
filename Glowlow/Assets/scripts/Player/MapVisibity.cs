@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapVisibity : MonoBehaviour {
-	public float howLongIsTheModulVisible = 30f;
+	private float howLongIsTheModulVisible = 1f;
 	public Material invisibleMat;
 
 
@@ -22,7 +22,7 @@ public class MapVisibity : MonoBehaviour {
 		if(timeLastVisit == null){ // modules dont exist in start yet
 			timeLastVisit = new double [modules.Length];
 			for(int i = 0; i < timeLastVisit.Length; i++){
-				timeLastVisit[i] = currentTime - howLongIsTheModulVisible;
+				timeLastVisit[i] = currentTime - float.MaxValue;
 			}
 			visibleMat = modules [0].GetComponent<Renderer> ().material;
 		}
@@ -40,6 +40,11 @@ public class MapVisibity : MonoBehaviour {
 				modules [i].GetComponent<Renderer> ().material = visibleMat;
 			}
 		}
+//		Debug.Log (howLongIsTheModulVisible);
+	}
 
+	public void SetHowLongTheMapIsVisible(float seconds){
+		howLongIsTheModulVisible = seconds;
+//		Debug.Log (howLongIsTheModulVisible);
 	}
 }

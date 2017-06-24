@@ -83,7 +83,7 @@ public class Move : MonoBehaviour {
 		ChangeSpot(Input.GetAxis("X360_Triggers") * -1);
         ChangeSpot(Input.GetAxis("X360_Triggers_Linux") * +1);
 
-  		Debug.Log (currentSpeed);      
+//  		Debug.Log (currentSpeed);      
     }
 
     
