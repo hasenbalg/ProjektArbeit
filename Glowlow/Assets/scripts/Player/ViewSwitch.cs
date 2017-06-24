@@ -63,8 +63,15 @@ public class ViewSwitch : MonoBehaviour {
 
         //controller
         //change color
-        if (Input.GetButtonDown("X360_R_Bumper")) { ColorIndexUp();}
-		if (Input.GetButtonDown("X360_L_Bumper")) { ColorIndexDown();}
+        if (Input.GetButtonDown("X360_R_Bumper")) { 
+			if(!transform.GetComponent<SkillzzzBooster>().HUDorMapActive()){
+				ColorIndexUp();}
+			}
+		if (Input.GetButtonDown("X360_L_Bumper")) {
+			if (!transform.GetComponent<SkillzzzBooster> ().HUDorMapActive ()) {
+				ColorIndexDown ();
+			}
+		}
 
 
         //color light for frag view
@@ -94,6 +101,7 @@ public class ViewSwitch : MonoBehaviour {
 	}
 
 	private void SwitchCamera(){
+		
 		foreach(Camera c in cameras){
 			c.enabled = false;
 		}

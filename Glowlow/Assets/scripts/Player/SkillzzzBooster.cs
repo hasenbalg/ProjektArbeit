@@ -65,13 +65,13 @@ public class SkillzzzBooster : MonoBehaviour
 
 
 		//HUD
-		if ((Input.GetButton("X360_B") || Input.GetKey(KeyCode.R)) && lastTimeToggledHUD + .3 < Time.realtimeSinceStartup &&  vs.GetStatus() == Views.EXPLORE) {
+		if ((Input.GetButton("X360_B") || Input.GetKey(KeyCode.R)) && lastTimeToggledHUD + .3 < Time.realtimeSinceStartup &&  vs.GetStatus() == Views.EXPLORE && !MAPon) {
 			HUDon = !HUDon;
 			hm.ToggleHUD ();
 			lastTimeToggledHUD = Time.realtimeSinceStartup;
 		}
 		//MAP
-		if ((Input.GetKeyDown (KeyCode.Tab) || Input.GetButtonDown ("X360_Y")) && lastTimeToggledHUD + .3 < Time.realtimeSinceStartup &&  vs.GetStatus() == Views.EXPLORE) {
+		if ((Input.GetKeyDown (KeyCode.Tab) || Input.GetButtonDown ("X360_Y")) && lastTimeToggledHUD + .3 < Time.realtimeSinceStartup &&  vs.GetStatus() == Views.EXPLORE && !HUDon) {
 			MAPon = !MAPon;
 			mm.ToggleMap ();
 			lastTimeToggledHUD = Time.realtimeSinceStartup;
@@ -107,7 +107,9 @@ public class SkillzzzBooster : MonoBehaviour
 
 	}
 
-
+	public bool HUDorMapActive(){
+		return HUDon || MAPon;
+	}
 
 
 }
