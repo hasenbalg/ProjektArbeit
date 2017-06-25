@@ -36,7 +36,16 @@ public class Move : MonoBehaviour {
         // Movement
         CharacterController controller = GetComponent<CharacterController>();
 		if (controller.isGrounded) {
+			//moveDirection = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 			moveDirection = new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
+			//move cams back and forth
+			foreach(Camera cam in Camera.allCameras){
+				Vector3 camPos = cam.transform.localPosition;
+				Vector3 camRot = cam.transform.localEulerAngles;
+				cam.transform.localPosition = Vector3.Lerp (camPos, new Vector3 (0, 0, Input.GetAxis ("Vertical")) * .5f, .5f);
+//				cam.transform.localRotation = Vector3.Lerp (camRot, new Vector3 (0, 0, Input.GetAxis ("Horizontal")) * .5f, .5f);
+				cam.transform.localRotation = Quaternion.Euler(0, 0, Input.GetAxis ("Horizontal"));
+			}
 			moveDirection = transform.TransformDirection (moveDirection);
 			moveDirection *= currentSpeed;
 
