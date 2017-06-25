@@ -132,4 +132,8 @@ public class HUDManager: MonoBehaviour{
 	}
 
 
+	public bool IsActive(){
+		return isActive;
+	}
+
 }
