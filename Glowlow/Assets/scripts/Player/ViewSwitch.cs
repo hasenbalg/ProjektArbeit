@@ -79,6 +79,7 @@ public class ViewSwitch : MonoBehaviour {
 		if (currentCamIndex == (int)Views.FRAG)
         {
             gameObject.transform.GetChild(0).gameObject.transform.Find("PlayerLight").GetComponent<Light>().color = fragViewTintColor;
+			GetComponent<Move> ().SetCurrentSpeed (.5f);
         }
         else {
             gameObject.transform.GetChild(0).gameObject.transform.Find("PlayerLight").GetComponent <Light>().color = new Color(1,1,1);
