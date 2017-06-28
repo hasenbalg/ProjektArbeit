@@ -22,7 +22,7 @@ public class SkidMarks : MonoBehaviour {
 //		Debug.Log (cc.velocity);
 		if(Mathf.Abs(cc.velocity.x) < .01f && !halt){
 			halt = true;
-			Debug.Log ("IIIIIIIIIIK");
+//			Debug.Log ("IIIIIIIIIIK");
 			ac.clip = rubberSqueek;
 			ac.Play ();
 			Instantiate (skidMark, new Vector3(transform.position.x, .001f, transform.position.z), transform.rotation);
