@@ -119,6 +119,9 @@ public class Move : MonoBehaviour {
 	public void SetCurrentSpeed(){
 		currentSpeed = normalSpeed;
 	}
+	public float GetCurrentSpeed(){
+		return currentSpeed;
+	}
 
 
 

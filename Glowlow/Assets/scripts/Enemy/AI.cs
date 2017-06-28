@@ -40,6 +40,7 @@ public class AI : MonoBehaviour
         if (distance < watchDistance)
         {
             watch();
+
         }
 
         if (distance < followDistance)
@@ -60,6 +61,8 @@ public class AI : MonoBehaviour
     {
 //        Vector3 direction = target.position - transform.position;
 //        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), damping);
+//		ac.clip = soundWatch;
+//		ac.Play();
     }
 
     private void follow()

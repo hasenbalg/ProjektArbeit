@@ -9,17 +9,21 @@ public class DriveSound : MonoBehaviour {
 	public AudioClip drive;
 
 	private CharacterController cc;
+	private Move mv;
 	void Start () {
 		ac = GetComponent<AudioSource> ();
-		cc = GetComponent<CharacterController> ();
-
+		cc = GetComponentInParent<CharacterController> ();
+		mv = GetComponentInParent<Move> ();
+		ac.clip = drive;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Mathf.Abs(cc.velocity.x) > .01f && !ac.isPlaying){
-			ac.clip = drive;
+		ac.pitch = mv.GetCurrentSpeed ();
+		if (Mathf.Abs (cc.velocity.x) > .01f && !ac.isPlaying) {
 			ac.Play ();
+		}else if(Mathf.Abs (cc.velocity.x) < .01f && ac.isPlaying){
+			ac.Stop ();
 		}
 
 	}

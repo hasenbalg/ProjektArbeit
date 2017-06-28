@@ -16,6 +16,8 @@ public class EnergyDock : MonoBehaviour {
 	public AudioClip fillUpSound;
 	private AudioSource ac;
 
+	private Renderer rd;
+
 	// Use this for initialization
 	void Start () {
 		intitialTime = timeToFillUp;
@@ -32,18 +34,23 @@ public class EnergyDock : MonoBehaviour {
 		level.y = 0;
 		indicator.transform.position = level;
 
+		rd = indicator.GetComponent<Renderer> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-		if (Vector3.Distance (player.transform.position, transform.position) < transform.localScale.x) {
+		if (Vector3.Distance (player.transform.position, transform.position) < transform.localScale.x * 1.5f) {
 			timeToFillUp -= Time.deltaTime;
 			indicator.transform.localScale = new Vector3 (1, (intitialTime - timeToFillUp) / intitialTime, 1);
 			Vector3 level = indicator.transform.position;
 			level.y = yOffset * (intitialTime - timeToFillUp) / intitialTime;
 			indicator.transform.position = level;
+
+			rd.material.SetTextureScale("_MainTex", new Vector2((intitialTime - timeToFillUp) * 10f / intitialTime, (intitialTime - timeToFillUp) * 10f/ intitialTime));
+
 			ac.pitch = (intitialTime - timeToFillUp) / intitialTime;
 
 			if(timeToFillUp > 0){
