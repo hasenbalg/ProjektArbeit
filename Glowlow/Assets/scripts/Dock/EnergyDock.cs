@@ -44,7 +44,7 @@ public class EnergyDock : MonoBehaviour {
 			Vector3 level = indicator.transform.position;
 			level.y = yOffset * (intitialTime - timeToFillUp) / intitialTime;
 			indicator.transform.position = level;
-
+			ac.pitch = (intitialTime - timeToFillUp) / intitialTime;
 
 			if(timeToFillUp > 0){
 				// cost erngy for the player
