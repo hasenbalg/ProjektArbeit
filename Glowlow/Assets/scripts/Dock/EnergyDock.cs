@@ -66,7 +66,9 @@ public class EnergyDock : MonoBehaviour {
 
 			if (!ac.isPlaying && timeToFillUp > 0) {
 				ac.Play ();
-
+			} 
+			if(ac.isPlaying && timeToFillUp <= 0){
+				ac.Stop ();
 			}
 
 

@@ -19,7 +19,7 @@ public class DriveSound : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		ac.pitch = mv.GetCurrentSpeed ();
+		ac.pitch = mv.GetCurrentSpeed () * .2f;
 		if (Mathf.Abs (cc.velocity.x) > .01f && !ac.isPlaying) {
 			ac.Play ();
 		}else if(Mathf.Abs (cc.velocity.x) < .01f && ac.isPlaying){

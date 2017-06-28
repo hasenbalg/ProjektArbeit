@@ -59,9 +59,10 @@ public class Energy : MonoBehaviour {
 		{
 //			Debug.Log("Energy clollected");
 			GainEnergy ();
-			Destroy(other.gameObject);
-			ac.clip = collectBattery;
-			ac.Play ();
+			other.GetComponent<BatteryVanish> ().Vanish ();
+//			Destroy(other.gameObject);
+//			ac.clip = collectBattery;
+//			ac.Play ();
 		}
 	}
 
