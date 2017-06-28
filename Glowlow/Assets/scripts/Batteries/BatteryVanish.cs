@@ -22,6 +22,7 @@ public class BatteryVanish : MonoBehaviour {
 	public void Update(){
 		if(collected && !ac.isPlaying && !readyToDie){
 			ac.Play ();
+			GetComponent<MeshRenderer> ().enabled = false;
 			readyToDie = true;
 
 		}
