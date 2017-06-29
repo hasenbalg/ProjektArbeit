@@ -8,11 +8,10 @@ public class Dock2Manager : MonoBehaviour {
 
 
 	private GameObject[] docks;
-	private float totalTimeLeft = 0;
+	private float totalPercent = 0;
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -21,10 +20,12 @@ public class Dock2Manager : MonoBehaviour {
 //		Debug.Log (docks.Length + "Docks length");
 
 		int sum = 0;
+		totalPercent = 0;
 		foreach(GameObject go in docks){
 			if (go.GetComponent<Dock2Energy> ().isFilled) {
 				sum++;
 			}
+			totalPercent += go.GetComponent<Dock2Energy> ().GetPercent();
 
 		}
 		if (sum == docks.Length) {
@@ -36,5 +37,12 @@ public class Dock2Manager : MonoBehaviour {
 //			SceneManager.LoadScene ("start");
 			GameEnd.GameWin ();
 		}
+	}
+
+	public float GetCommonAverage(){
+		if (docks != null) {
+			return totalPercent/docks.Length; 
+		}
+		return 0f;
 	}
 }

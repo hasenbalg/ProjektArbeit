@@ -58,9 +58,7 @@ public class Dock2Energy : MonoBehaviour {
 				ac.Stop ();
 			}
 
-			if (energyLeft < 0) {
-				isFilled = true;
-			}
+
 
 			for (int i = 0; i < bulbs.Length; i++) {
 				// Debug.Log ((fullEnergy - energyLeft) / fullEnergy);
@@ -79,10 +77,19 @@ public class Dock2Energy : MonoBehaviour {
 				foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy")) {
 					e.GetComponent<AI> ().makeMoreSenible (); 
 				}
+
+			}
+			if (energyLeft < 0) {
+				isFilled = true;
+				energyLeft = 0;
 			}
 		} else {
 			ac.Stop ();
 		}
 
+	}
+
+	public float GetPercent(){
+		return (fullEnergy - energyLeft) / fullEnergy;
 	}
 }
