@@ -23,17 +23,24 @@ public class PlaceDocks2 : MonoBehaviour {
 	void Update () {
 		docks2Placehoders = GameObject.FindGameObjectsWithTag("Dock2Placeholder");
 
-		if (docks2Placehoders.Length > maxNumDocks) {
-			Destroy (docks2Placehoders [Random.Range (0, docks2Placehoders.Length - 1)]);
-		} else {
-			placeHolderNumReached = true;
-		}
 
-//		if (!placeHolderNumReached) {
-//			GetComponent<Pause> ().isPause = true;
-//		} else {
-//			GetComponent<Pause> ().isPause = false;
-//		}
+
+		if (!placeHolderNumReached) {
+			GetComponent<Pause> ().isPause = true;
+
+
+			foreach(GameObject dock in docks2Placehoders){
+				if (GameObject.FindGameObjectsWithTag("Dock2Placeholder").Length > maxNumDocks) {
+					Destroy (docks2Placehoders [Random.Range (0, docks2Placehoders.Length - 1)]);
+				} else {
+					placeHolderNumReached = true;
+				}
+			}
+
+
+		} else {
+			GetComponent<Pause> ().isPause = false;
+		}
 
 
 		if(placeHolderNumReached){
