@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pause : MonoBehaviour {
 
 	public Texture flickerTexture;
-	bool isPause;
+	public bool isPause;
 	void Start()
 	{
 //		Debug.Log ("huhu");
