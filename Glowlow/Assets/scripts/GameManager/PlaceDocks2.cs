@@ -15,9 +15,12 @@ public class PlaceDocks2 : MonoBehaviour {
 
 	void Start(){
 		docks2Placehoders = GameObject.FindGameObjectsWithTag("Dock2Placeholder");
-		foreach(GameObject d2ph in docks2Placehoders){
-			d2ph.GetComponent<MeshRenderer> ().enabled = false;
+
+		Instantiate (dock2, docks2Placehoders [0].transform.position, docks2Placehoders [0].transform.rotation);
+		foreach (GameObject d2ph in docks2Placehoders) {
+			d2ph.GetComponent<Renderer> ().enabled = false;
 		}
+
 	}
 
 	void Update () {

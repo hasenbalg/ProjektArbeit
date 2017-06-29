@@ -17,7 +17,7 @@ public class EnemyEnergy : MonoBehaviour {
 		Color c =  gameObject.GetComponent<Renderer> ().material.color;
 		gameObject.GetComponent<Renderer> ().material.color = new Color(c.r, c.g, c.b,  energy/1000);
 //		Debug.Log (c.ToString());
-		if (energy == 0) {
+		if (energy <= 0) {
 			ac.clip = deathSound;
 			ac.Play ();
 			HUDManager hm = GameObject.Find ("HUD").GetComponent<HUDManager> ();
