@@ -14,7 +14,7 @@ public class AutoFocus : MonoBehaviour {
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		RaycastHit hit;
 		if (Physics.Raycast (transform.position, fwd, out hit, Mathf.Infinity,(1 << LayerMask.NameToLayer("ExplorerViewLayer")))) {
-			Debug.Log(hit.transform.position);
+			// Debug.Log(hit.transform.position);
 			Vector3 afp = transform.GetChild (4).transform.position;
 			afp = Vector3.Lerp (afp, hit.transform.position, .1f);
 			transform.GetChild (4).transform.position = afp;

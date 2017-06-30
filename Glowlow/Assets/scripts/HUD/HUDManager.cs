@@ -136,4 +136,10 @@ public class HUDManager: MonoBehaviour{
 		return isActive;
 	}
 
+	public void AddSkillPoint(){
+		if (available < maxAvailable) {
+			available++;
+		}
+	}
+
 }
