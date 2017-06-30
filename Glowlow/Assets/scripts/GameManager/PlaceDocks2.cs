@@ -14,45 +14,48 @@ public class PlaceDocks2 : MonoBehaviour {
 
 
 	void Start(){
-		docks2Placehoders = GameObject.FindGameObjectsWithTag("Dock2Placeholder");
+		string output = "";
+		foreach(GameObject g in GameObject.FindGameObjectsWithTag("Dock2Placeholder")){
+			output += g.GetInstanceID().ToString();
+		}
+		Debug.Log (output);
 
-		Instantiate (dock2, docks2Placehoders [0].transform.position, docks2Placehoders [0].transform.rotation);
-		foreach (GameObject d2ph in docks2Placehoders) {
-			d2ph.GetComponent<Renderer> ().enabled = false;
+		GameObject[] docks2Placehoders = reshuffle (GameObject.FindGameObjectsWithTag("Dock2Placeholder"));
+
+		 output = "";
+		foreach(GameObject g in docks2Placehoders){
+			output += g.GetInstanceID().ToString();
+		}
+		Debug.Log (output);
+
+		
+		for(int i = 0; i < maxNumDocks; i++){
+			Instantiate (dock2, docks2Placehoders[i].transform.position, docks2Placehoders[i].transform.rotation);
+		}
+
+		foreach (GameObject d2ph in GameObject.FindGameObjectsWithTag("Dock2Placeholder")) {
+			Destroy(d2ph);
 		}
 
 	}
 
-	void Update () {
-		docks2Placehoders = GameObject.FindGameObjectsWithTag("Dock2Placeholder");
+	GameObject[] reshuffle(GameObject[] gos)	{
+//		https://forum.unity3d.com/threads/randomize-array-in-c.86871/
+		// Knuth shuffle algorithm :: courtesy of Wikipedia :)
+		GameObject[] gosCopy = gos;
 
-
-
-		if (!placeHolderNumReached) {
-			GetComponent<Pause> ().isPause = true;
-
-
-			foreach(GameObject dock in docks2Placehoders){
-				if (GameObject.FindGameObjectsWithTag("Dock2Placeholder").Length > maxNumDocks) {
-					Destroy (docks2Placehoders [Random.Range (0, docks2Placehoders.Length - 1)]);
-				} else {
-					placeHolderNumReached = true;
-				}
-			}
-
-
-		} else {
-			GetComponent<Pause> ().isPause = false;
+		for (int t = 0; t < gosCopy.Length; t++ )
+		{
+			GameObject tmp = gosCopy[t];
+			int r = Random.Range(t, gosCopy.Length);
+			gosCopy[t] = gosCopy[r];
+			gosCopy[r] = tmp;
 		}
 
-
-		if(placeHolderNumReached){
-			foreach(GameObject d2ph in docks2Placehoders){
-				Instantiate (dock2, d2ph.transform.position, d2ph.transform.rotation );
-				Destroy (d2ph);
-			}
-		}
-
+		return gosCopy;
 	}
+
+
+
 	
 }
