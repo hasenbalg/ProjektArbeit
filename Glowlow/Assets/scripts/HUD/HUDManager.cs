@@ -31,6 +31,8 @@ public class HUDManager: MonoBehaviour{
 	private Light spot;
 	public float lightIntensity;
 
+	private int lastAvailable = 0;
+
 	void Start (){
 
 		string[] skillz = System.Enum.GetNames (typeof(Skillz));
@@ -47,7 +49,8 @@ public class HUDManager: MonoBehaviour{
 
 		//enable available points
 
-		HUDavailable = transform.GetChild (0);
+		HUDavailable = transform.Find("HUDAvailable").transform;
+
 		ProvideMaterialToPoints ();
 
 		currentHighlightSkill = (int)Skillz.Speed;
@@ -76,10 +79,17 @@ public class HUDManager: MonoBehaviour{
 				if(skillLabels [currentHighlightSkill].GetComponent<SkillLevels> ().LevelUp ()){
 					available--;
 				}
-				ProvideMaterialToPoints ();
+
 			}
 			lastTriggered = Time.realtimeSinceStartup;
 		}
+
+		if (lastAvailable != available) {
+			ProvideMaterialToPoints ();
+		}
+		lastAvailable = available;
+
+
 			
 
 	}
@@ -96,9 +106,9 @@ public class HUDManager: MonoBehaviour{
 	private void ProvideMaterialToPoints(){
 		for (int i = 0; i < HUDavailable.childCount; i++) {
 			if (i < available) {
-				HUDavailable.GetChild (i).GetComponent<Renderer> ().material = highlight;
+				HUDavailable.GetChild (i).gameObject.GetComponent<Renderer> ().material = highlight;
 			} else {
-				HUDavailable.GetChild (i).GetComponent<Renderer> ().material = dark;
+				HUDavailable.GetChild (i).gameObject.GetComponent<Renderer> ().material = dark;
 			}
 		}
 	}
