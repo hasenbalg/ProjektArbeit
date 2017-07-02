@@ -53,3 +53,9 @@ https://www.assetstore.unity3d.com/en/#!/content/82167
 NavMesh at Runtime
 https://github.com/Unity-Technologies/NavMeshComponents/tree/master/Assets/Examples/Scripts
 MIT
+
+## Schriftschnitte
+
+ADAM.CG PRO Font
+http://www.1001fonts.com/adam-cg-pro-font.html
+© Shrenik Ganatra 2017
