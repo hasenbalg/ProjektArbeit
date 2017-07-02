@@ -41,8 +41,17 @@ https://freesound.org/people/kingof_thelab/sounds/340241/
 CC BY 3.0
 
 ### Umgebungsgeraeusch
-????????????????????????
+http://www.philmichalski.com/sci-fi-mechanics-mini/
+© AudioPhil 2017
 
+https://www.assetstore.unity3d.com/en/#!/content/32833
+© Little Robot Sound Factory 2017
+
+https://www.assetstore.unity3d.com/en/#!/content/32830
+© Little Robot Sound Factory 2017
+
+https://www.assetstore.unity3d.com/en/#!/content/61781
+© cabled_mess 2017
 ## Shader
 Hologramshader
 https://www.assetstore.unity3d.com/en/#!/content/82167
@@ -59,3 +68,9 @@ MIT
 ADAM.CG PRO Font
 http://www.1001fonts.com/adam-cg-pro-font.html
 © Shrenik Ganatra 2017
+
+
+## Brushes
+Nebula Brushes
+http://juanez.deviantart.com/art/Nebula-Brushes-120773952
+© juanez 2017
