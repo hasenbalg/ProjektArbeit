@@ -45,7 +45,7 @@ public class menuScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (jumptostart == true && Time.realtimeSinceStartup >= timetoswitch) {
+		if (jumptostart == true && Time.timeSinceLevelLoad >= timetoswitch) {
 			SceneManager.LoadScene ("start");
 		}
 		
