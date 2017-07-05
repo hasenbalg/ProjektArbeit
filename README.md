@@ -2,7 +2,7 @@
 Es soll ein 3D-Computerspiel mittels Unity entwickelt werden. Das Spiel soll eigens entwickelte Assets
 nutzen und die Implemtierung soll mittels C# erfolgen. Als Projektziel ist definiert, dass ein Spiel vom
 Game Design bis zur Implemtierung zu einem spielbaren Prototyp entsteht.
-Außerdem soll das Design des Spiels zur Spielgeschichte passen, sodass der Spieler sich im Spiel und der 
+Außerdem soll das Design des Spiels zur Spielgeschichte passen, sodass der Spieler sich im Spiel und der
 Geschichte wieder findet.
 
 # Anforderungsliste / Qualitätsmaßstäbe
@@ -14,6 +14,11 @@ eingesetzt, um Projekte zu verwalten und diese mittels SCRUM zu managen. Deshalb
 einen Einblick in die Software erhalten können.
 
 [JIRA LINK](https://projektarbeit.atlassian.net)
+
+[Github LINK](https://github.com/hasenbalg/ProjektArbeit)
+
+[Download LINK](http://frankhasenbalg.de/ASRO/)
+
 
 ## Game Design
 Das Spiel soll ein gutes Spielkonzept haben. Außerdem soll etwas außergewöhliches entwickelt werden, sodass etwas neues entstehen
@@ -128,9 +133,9 @@ Durch Pair-Programmierung (Frank und Jasmin) konnten viele Probleme schneller be
 entstanden. Das hat den Vorteil gebracht, dass Programmieransätze dirsktuiert und so sinnvoler umgesetzt werden konnten.
 
 ## Design
-Die eigentliche Designphase begann erst nach ersten Programmierungen. Die wöchentlichen Sprint-Meetings wurden auch dazu genutzt, 
-Designentwürfe zu präsentieren und abzustimmen. Dies hat wunderbar funktioniert, da in der Gruppe meist konstruktives Feedback der Fall war. 
-Ein negativer Aspekt ist die Arbeit im UI-Design, welches später verworfen wurde, da sich das Konzept verändert hat. Daraus könnte man lernen, 
+Die eigentliche Designphase begann erst nach ersten Programmierungen. Die wöchentlichen Sprint-Meetings wurden auch dazu genutzt,
+Designentwürfe zu präsentieren und abzustimmen. Dies hat wunderbar funktioniert, da in der Gruppe meist konstruktives Feedback der Fall war.
+Ein negativer Aspekt ist die Arbeit im UI-Design, welches später verworfen wurde, da sich das Konzept verändert hat. Daraus könnte man lernen,
 lediglich erst mit Mockups zu arbeiten, bis das Konzept vollständig steht.
 
 ## 3D-Modelle
