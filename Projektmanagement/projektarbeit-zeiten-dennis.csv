@@ -1,0 +1,16 @@
+Vorgangstyp,Vorgangsschlüssel:,Vorgangs ID,Zusammenfassung,Bearbeiter,Autor,Priorität,Status,Lösung,Erstellt,Aktualisiert,Fälligkeitsdatum,Benötigte Zeit,Benötigte Zeit in Stunden
+Aufgabe,PROJ-69,11201,Teaser Animation,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,13/Jun/17 4:18 PM,03/Jul/17 1:19 PM,,138600,"38,5"
+Aufgabe,PROJ-68,11200,Playtest_Dennis,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,13/Jun/17 4:15 PM,03/Jul/17 1:19 PM,,25200,7
+Aufgabe,PROJ-66,11000,Projektmanagement_Dennis,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,08/Jun/17 11:35 AM,03/Jul/17 1:18 PM,,46800,13
+Aufgabe,PROJ-52,10803,Energiequellen modellieren und animieren,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,03/Mai/17 7:48 PM,08/Jun/17 11:38 AM,,32400,9
+Aufgabe,PROJ-51,10802,Animationen der Gegner in Unity einbauen,dennis-deppe89,jasmin-stern,Medium,Offen,,02/Mai/17 3:18 PM,14/Jun/17 11:10 AM,,14400,4
+Aufgabe,PROJ-44,10402,Gegner Erstellen - Bugs,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,07/Apr/17 5:24 PM,14/Jun/17 11:18 AM,,45000,"12,5"
+Aufgabe,PROJ-24,10208,Leveldesign,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,04/Apr/17 3:07 PM,03/Jul/17 1:18 PM,,136800,38
+Aufgabe,PROJ-23,10207,Gegner Animation,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,04/Apr/17 3:07 PM,04/Mai/17 7:48 AM,,22500,"6,25"
+Aufgabe,PROJ-22,10206,Animation Spieler,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,04/Apr/17 3:07 PM,14/Jun/17 4:23 PM,,5400,"1,5"
+Aufgabe,PROJ-17,10201,Prototyp Virus_One,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,04/Apr/17 9:38 AM,13/Apr/17 12:52 PM,,10800,3
+Aufgabe,PROJ-15,10111,2D Model des Hauptcharakters,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,30/Mär/17 12:20 PM,07/Apr/17 1:55 PM,,14400,4
+Aufgabe,PROJ-13,10109,Prototyp des Hauptcharakters,dennis-deppe89,Sebastian Matthiesen,Highest,Geschlossen,Fertig,30/Mär/17 11:59 AM,07/Apr/17 5:21 PM,,30600,"8,5"
+Aufgabe,PROJ-11,10107,Erstellen einer Präsentation,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,30/Mär/17 11:22 AM,07/Apr/17 1:55 PM,,9000,"2,5"
+Aufgabe,PROJ-6,10102,Meeting Zeiten Dennis,dennis-deppe89,jasmin-stern,Lowest,Geschlossen,Fertig,30/Mär/17 10:35 AM,03/Jul/17 1:18 PM,,223200,62
+,,,,,,,,,,,,755100,"209,75"
