@@ -40,6 +40,10 @@ Creative Commons 0
 https://freesound.org/people/kingof_thelab/sounds/340241/
 CC BY 3.0
 
+### Crash
+https://freesound.org/people/zxin/sounds/231889/
+Creative Commons 0
+
 ### Umgebungsgeraeusch
 http://www.philmichalski.com/sci-fi-mechanics-mini/
 © AudioPhil 2017
@@ -76,22 +80,12 @@ http://juanez.deviantart.com/art/Nebula-Brushes-120773952
 © juanez 2017
 
 
-
-
-
-# Quellen
-http://juanez.deviantart.com/art/Nebula-Brushes-120773952
-
-## Sounds
-https://freesound.org/people/ChemiCatz/sounds/267910/
-https://www.assetstore.unity3d.com/en/#!/content/32833
-https://www.assetstore.unity3d.com/en/#!/content/32830
-https://www.assetstore.unity3d.com/en/#!/content/61781
-https://freesound.org/people/ChemiCatz/sounds/267910/
-http://www.philmichalski.com/sci-fi-mechanics-mini/
-https://freesound.org/people/zxin/sounds/231889/
-https://www.google.de/search?hl=en-DE&q=Latticework&tbm=isch&tbs=simg:CAQSkgEJnZWdRFg4RD4ahgELEKjU2AQaAAwLELCMpwgaYQpfCAMSJ74etgOmF2e_1HqsXvAO1A68Duh6UKbgnsyqFI-Ah8CHgKIYn1yjfKBowFsyv1PQH0JMLdbSYn4o6BBfe6bDJPddmyrCbjUPve-LlocqchsftHK3rg6b-Y616IAQMCxCOrv4IGgoKCAgBEgSHUsj5DA&sa=X&ved=0ahUKEwjzwpDRqurUAhWIZlAKHat9CR4Q2A4IJigB&biw=1301&bih=654#imgrc=ieB6MyW3Eb_G2M:
-
 ## 3D-Modelle
+
+### Raumschiff
 https://www.blendswap.com/blends/view/27196
+Creative Commons 0
+
+### Ameise
 https://www.blendswap.com/blends/view/44645
+Creative Commons 0
