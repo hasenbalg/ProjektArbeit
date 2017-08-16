@@ -8,6 +8,7 @@ public class Energy : MonoBehaviour {
 
 	public float energy = 1000f;
 	public float looseEnergyOverFactor = .05f;
+
 	[Header("Light")]
 	public Light playerLight;
 	public float lowEnergyWarnigPercent = .3f;
@@ -46,23 +47,18 @@ public class Energy : MonoBehaviour {
 		}
 	}
 
-	public void GainEnergy(){
-//		fill up to 100%
-		Debug.Log("Energy to gain: " + (energy - fullEnergy));
-		LooseEnergy (energy - fullEnergy);
+	public void GainEnergy(float percent){
+		float gain = fullEnergy * percent / 100f;
+		energy += gain;
+		energy = Mathf.Clamp (energy, -Mathf.Infinity, fullEnergy);
 	}
 
 
 	void OnTriggerEnter(Collider other) {
-		//Destroy(other.gameObject);
 		if(other.gameObject.tag == "Energy")
 		{
-//			Debug.Log("Energy clollected");
-			GainEnergy ();
+			GainEnergy (other.GetComponent<EnergyDispense>().fillUpPercent);
 			other.GetComponent<BatteryVanish> ().Vanish ();
-//			Destroy(other.gameObject);
-//			ac.clip = collectBattery;
-//			ac.Play ();
 		}
 	}
 
