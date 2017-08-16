@@ -1,0 +1,7 @@
+Vorgangstyp,Vorgangsschlüssel:,Vorgangs ID,Zusammenfassung,Bearbeiter,Autor,Priorität,Status,Lösung,Erstellt,Aktualisiert,Fälligkeitsdatum,Komponente(n),Benötigte Zeit,Benötigte Zeit in Stunden
+Aufgabe,PROJ-73,11600,Playtest Jasmin,jasmin-stern,jasmin-stern,Medium,Geschlossen,Fertig,03/Jul/17 12:09 PM,03/Jul/17 4:13 PM,,Play-Test,32400,9
+Aufgabe,PROJ-70,11300,Playtest_Seb,Sebastian Matthiesen,Sebastian Matthiesen,Medium,Geschlossen,Fertig,14/Jun/17 9:10 AM,03/Jul/17 4:12 PM,,Play-Test,39600,11
+Aufgabe,PROJ-68,11200,Playtest_Dennis,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,13/Jun/17 4:15 PM,03/Jul/17 4:11 PM,,Play-Test,25200,7
+Aufgabe,PROJ-55,10900,Playtest,frankam,jasmin-stern,Medium,Geschlossen,Fertig,17/Mai/17 10:51 PM,03/Jul/17 4:00 PM,,Play-Test,64800,18
+Aufgabe,PROJ-41,10303,Prototyp Tests,Sebastian Matthiesen,Sebastian Matthiesen,High,Geschlossen,Fertig,05/Apr/17 8:32 PM,03/Jul/17 3:58 PM,,Play-Test,5400,"1,5"
+,,,,,,,,,,,,,167400,"46,5"

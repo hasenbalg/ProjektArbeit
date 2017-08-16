@@ -1,0 +1,8 @@
+Vorgangstyp,Vorgangsschlüssel:,Vorgangs ID,Zusammenfassung,Bearbeiter,Autor,Priorität,Status,Lösung,Erstellt,Aktualisiert,Fälligkeitsdatum,Komponente(n),Benötigte Zeit,Benötigte Zeit in Stunden
+Aufgabe,PROJ-53,10804,UI-Design,Sebastian Matthiesen,Sebastian Matthiesen,Medium,Erledigt,Fertig,04/Mai/17 9:46 AM,03/Jul/17 12:13 PM,,Layout,72000,"20,00"
+Aufgabe,PROJ-45,10500,Moodboard,Sebastian Matthiesen,Sebastian Matthiesen,High,Geschlossen,Fertig,12/Apr/17 8:41 AM,19/Apr/17 5:23 PM,,Layout,6600,"1,83"
+Aufgabe,PROJ-40,10302,Briefing,Sebastian Matthiesen,Sebastian Matthiesen,High,Erledigt,Fertig,05/Apr/17 8:32 PM,02/Mai/17 10:16 AM,,Layout,13200,"3,67"
+Story,PROJ-38,10300,Pressekit,Sebastian Matthiesen,Sebastian Matthiesen,Low,Geschlossen,Fertig,05/Apr/17 8:34 AM,03/Jul/17 1:18 PM,,Layout,169200,"47,00"
+Story,PROJ-16,10200,Logoprototyp,Sebastian Matthiesen,Sebastian Matthiesen,Medium,Geschlossen,Fertig,04/Apr/17 8:50 AM,17/Mai/17 10:48 PM,,Layout,28800,"8,00"
+Aufgabe,PROJ-10,10106,UI-Layout-Konzept,Sebastian Matthiesen,jasmin-stern,High,Erledigt,Fertig,30/Mär/17 11:19 AM,04/Mai/17 9:44 AM,,Layout,16200,"4,50"
+,,,,,,,,,,,,,306000,"85,00"

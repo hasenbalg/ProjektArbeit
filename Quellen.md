@@ -40,6 +40,10 @@ Creative Commons 0
 https://freesound.org/people/kingof_thelab/sounds/340241/
 CC BY 3.0
 
+### Crash
+https://freesound.org/people/zxin/sounds/231889/
+Creative Commons 0
+
 ### Umgebungsgeraeusch
 http://www.philmichalski.com/sci-fi-mechanics-mini/
 © AudioPhil 2017
@@ -74,3 +78,14 @@ http://www.1001fonts.com/adam-cg-pro-font.html
 Nebula Brushes
 http://juanez.deviantart.com/art/Nebula-Brushes-120773952
 © juanez 2017
+
+
+## 3D-Modelle
+
+### Raumschiff
+https://www.blendswap.com/blends/view/27196
+Creative Commons 0
+
+### Ameise
+https://www.blendswap.com/blends/view/44645
+Creative Commons 0

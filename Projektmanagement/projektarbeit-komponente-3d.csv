@@ -1,0 +1,14 @@
+Vorgangstyp,Vorgangsschlüssel:,Vorgangs ID,Übergeordnete ID,Zusammenfassung,Bearbeiter,Autor,Priorität,Status,Lösung,Erstellt,Aktualisiert,Fälligkeitsdatum,Komponente(n),Benötigte Zeit,Benötigte Zeit in Stunden
+Bug,PROJ-87,11614,,Ameisen haben Löcher in der Geometrie,jasmin-stern,jasmin-stern,Medium,Offen,,03/Jul/17 1:32 PM,03/Jul/17 1:32 PM,,3D,,0
+Unteraufgabe,PROJ-82,11609,10208,Texturiern der Module,frankam,frankam,Medium,Geschlossen,Fertig,03/Jul/17 1:14 PM,03/Jul/17 4:16 PM,,3D,72000,20
+Aufgabe,PROJ-69,11201,,Teaser Animation,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,13/Jun/17 4:18 PM,03/Jul/17 4:12 PM,,3D,138600,"38,5"
+Aufgabe,PROJ-52,10803,,Energiequellen modellieren und animieren,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,03/Mai/17 7:48 PM,08/Jun/17 11:38 AM,,3D,32400,9
+Aufgabe,PROJ-51,10802,,Animationen der Gegner in Unity einbauen,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,02/Mai/17 3:18 PM,03/Jul/17 3:59 PM,,3D,14400,4
+Aufgabe,PROJ-44,10402,,Gegner Erstellen - Bugs,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,07/Apr/17 5:24 PM,14/Jun/17 11:18 AM,,3D,45000,"12,5"
+Aufgabe,PROJ-24,10208,,Leveldesign,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,04/Apr/17 3:07 PM,03/Jul/17 3:52 PM,,3D,136800,38
+Aufgabe,PROJ-23,10207,,Gegner Animation,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,04/Apr/17 3:07 PM,03/Jul/17 3:51 PM,,3D,22500,"6,25"
+Aufgabe,PROJ-22,10206,,Animation Spieler,dennis-deppe89,jasmin-stern,Medium,Geschlossen,Fertig,04/Apr/17 3:07 PM,03/Jul/17 3:51 PM,,3D,5400,"1,5"
+Aufgabe,PROJ-17,10201,,Prototyp Virus_One,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,04/Apr/17 9:38 AM,03/Jul/17 3:49 PM,,3D,10800,3
+Aufgabe,PROJ-15,10111,,2D Model des Hauptcharakters,dennis-deppe89,dennis-deppe89,Medium,Geschlossen,Fertig,30/Mär/17 12:20 PM,03/Jul/17 3:49 PM,,3D,14400,4
+Aufgabe,PROJ-13,10109,,Prototyp des Hauptcharakters,dennis-deppe89,Sebastian Matthiesen,Highest,Geschlossen,Fertig,30/Mär/17 11:59 AM,03/Jul/17 3:48 PM,,3D,30600,"8,5"
+,,,,,,,,,,,,,,522900,"145,25"
