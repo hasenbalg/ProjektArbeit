@@ -32,12 +32,26 @@ public class Fight : MonoBehaviour {
 		Debug.DrawRay (transform.position,p*d,Color.green);
 
 
+		Debug.DrawRay (lamp.transform.position, lamp.transform.TransformDirection(Vector3.forward) * lampRange, Color.grey);
+
+	}
+
+	void FixedUpdate(){
 		if(vs.GetStatus() == Views.FRAG){
-			foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
-				hit_enemy (enemy, lampOpenAngle);
+			//			foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
+			//				hit_enemy (enemy, lampOpenAngle);
+			//			}
+
+
+			RaycastHit hit;
+
+			if (Physics.Raycast (lamp.transform.position, lamp.transform.TransformDirection(Vector3.forward) * lampRange, out hit, lampRange)) {
+				if(hit.transform.gameObject.tag == "Enemy"){
+					Debug.Log ("HIT ENEMY");
+					hit.transform.gameObject.GetComponent<EnemyEnergy> ().LooseEnergy (punchImpact);
+				}
 			}
 		}
-
 	}
 
 	private void hit_enemy(GameObject enemy, float lampOpenAngle){
