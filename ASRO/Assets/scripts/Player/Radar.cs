@@ -11,15 +11,17 @@ public class Radar : MonoBehaviour {
 
 	Dictionary<int, GameObject> monitoredEnemies = new Dictionary<int, GameObject>();
 	Queue<int> markers2Remove = new Queue<int>();
+
+	GameObject player;
 	void Start () {
-		
+		player = GameObject.Find ("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		foreach(GameObject e in GameObject.FindGameObjectsWithTag("Enemy")){
 			
-			if(Vector3.Distance(e.transform.position, transform.parent.position) <= monitoringDistance && !monitoredEnemies.ContainsKey(e.GetInstanceID())){
+			if(Vector3.Distance(e.transform.position, player.transform.position) <= monitoringDistance && !monitoredEnemies.ContainsKey(e.GetInstanceID())){
 				Debug.Log (monitoredEnemies.Count);
 				GameObject enemyMarker = Instantiate (enemy, enemy.transform.position, Quaternion.identity);
 				enemyMarker.transform.SetParent(transform, false);
@@ -28,7 +30,7 @@ public class Radar : MonoBehaviour {
 		}
 
 		foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy")) {
-			if(Vector3.Distance(e.transform.position, transform.parent.position) > monitoringDistance && monitoredEnemies.ContainsKey(e.GetInstanceID())){
+			if(Vector3.Distance(e.transform.position, player.transform.position) > monitoringDistance && monitoredEnemies.ContainsKey(e.GetInstanceID())){
 				//monitoredEnemies.Remove (e.GetInstanceID);
 				markers2Remove.Enqueue(e.GetInstanceID());
 			}
@@ -45,10 +47,13 @@ public class Radar : MonoBehaviour {
 			if(monitoredEnemies.ContainsKey(e.GetInstanceID())){
 				Vector3 markerPos = Vector3.Scale(
 					e.transform.position.normalized,
-					transform.Find("Monitor").transform.localScale
+					GameObject.Find("Monitor").transform.localScale
 				);
 					
 				monitoredEnemies [e.GetInstanceID()].transform.localPosition = markerPos / monitoringDistance;
+
+				transform.localRotation = player.transform.rotation;
+
 
 			}
 		}
