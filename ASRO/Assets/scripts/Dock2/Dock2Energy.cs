@@ -9,6 +9,7 @@ public class Dock2Energy : MonoBehaviour {
 	private float fullEnergy = 1000;
 	public float energyLoadingSpeed= 20f;
 	public float energyLeft;
+	public float loadingDistance = 1f;
 	public AudioClip loadingSound;
 	private AudioSource ac;
 	GameObject[] bulbs;
@@ -44,7 +45,7 @@ public class Dock2Energy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Vector3.Distance (transform.position, player.transform.position) <= 1f) {
+		if (Vector3.Distance (transform.position, player.transform.position) <= loadingDistance) {
 			energyLeft -= energyLoadingSpeed * Time.deltaTime;
 			ac.pitch = (fullEnergy - energyLeft) / fullEnergy;
 

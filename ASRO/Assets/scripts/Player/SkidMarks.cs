@@ -25,7 +25,8 @@ public class SkidMarks : MonoBehaviour {
 //			Debug.Log ("IIIIIIIIIIK");
 			ac.clip = rubberSqueek;
 			ac.Play ();
-			Instantiate (skidMark, new Vector3(transform.position.x, .001f, transform.position.z), transform.rotation);
+			GameObject skidm = Instantiate (skidMark, new Vector3(transform.position.x, .001f, transform.position.z), transform.rotation);
+			skidm.transform.SetParent (GameObject.Find("GameManager").transform, true);
 		}
 		if (Mathf.Abs(cc.velocity.x) > .01f) {
 			halt = false;

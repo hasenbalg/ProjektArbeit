@@ -25,14 +25,14 @@ public class Fight : MonoBehaviour {
 
 		//right ray
 		Quaternion q = Quaternion.AngleAxis(lampOpenAngle, Vector3.up * lampRange);
-		Debug.DrawRay (transform.position,q*d,Color.green);
+//		Debug.DrawRay (transform.position,q*d,Color.green);
 
 		//left ray
 		Quaternion p = Quaternion.AngleAxis(-lampOpenAngle, Vector3.up * lampRange);
-		Debug.DrawRay (transform.position,p*d,Color.green);
+//		Debug.DrawRay (transform.position,p*d,Color.green);
 
 
-		Debug.DrawRay (lamp.transform.position, lamp.transform.TransformDirection(Vector3.forward) * lampRange, Color.grey);
+		Debug.DrawRay (lamp.transform.position, lamp.transform.TransformDirection(Vector3.forward) * lampRange, Color.green);
 
 	}
 
