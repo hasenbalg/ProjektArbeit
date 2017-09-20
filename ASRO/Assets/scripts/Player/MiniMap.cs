@@ -6,6 +6,7 @@ public class MiniMap : MonoBehaviour {
 
 	public Material material;
 	public float scaleFactor = .007f;
+	string[] mappedObjects = {"rippe"};
 	public GameObject mapPlayer;
 	private GameObject mapPlayer_;
 
@@ -32,14 +33,24 @@ public class MiniMap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject map = GameObject.Find ("GameManager");
-		foreach(Transform modul in map.transform){
-			if(modul.name.Contains("group")){
-				foreach (Transform g_modul in modul.transform) {
-					BuildMap (g_modul);
+	GameObject map = GameObject.Find ("GameManager");
+//		foreach(Transform modul in map.transform){
+//			if(modul.name.Contains("group")){
+//				foreach (Transform g_modul in modul.transform) {
+//					BuildMap (g_modul);
+//				}
+//			}else{
+//				BuildMap (modul);
+//			}
+//
+//		}
+
+		foreach(GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
+		{
+			foreach (var str in mappedObjects) {
+				if (go.name.Contains ("rippe")) {
+					BuildMap (go.transform);
 				}
-			}else{
-				BuildMap (modul);
 			}
 
 		}
@@ -79,4 +90,6 @@ public class MiniMap : MonoBehaviour {
 //		transform.localRotation = Quaternion.Euler( GameObject.Find ("Player").transform.rotation.eulerAngles * -1f);
 
 	}
+
+
 }
